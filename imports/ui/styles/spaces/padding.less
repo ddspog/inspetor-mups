@@ -1,0 +1,29 @@
+// set all paddings for prefix
+.make-prefix-padding(@prefix) {
+  .make-padding(@prefix; @value:200; );
+  .make-padding(@prefix; @value:150; );
+  .make-padding(@prefix; @value:100; );
+  .make-padding(@prefix; @value:50; );
+  .make-padding(@prefix; @value:45; );
+  .make-padding(@prefix; @value:40; );
+  .make-padding(@prefix; @value:35; );
+  .make-padding(@prefix; @value:30; );
+  .make-padding(@prefix; @value:25; );
+  .make-padding(@prefix; @value:20; );
+  .make-padding(@prefix; @value:15; );
+  .make-padding(@prefix; @value:10; );
+  .make-padding(@prefix; @value:7;  );
+  .make-padding(@prefix; @value:5;  );
+  .make-padding(@prefix; @value:0;  );
+}
+
+// set all paddings
+.make-padding(@prefix; @value) {
+  .@{prefix}-p-@{value}    { padding:        ~"@{value}px" !important; }
+  .@{prefix}-ph-@{value}  { padding:        ~"0 @{value}px" !important; }
+  .@{prefix}-pv-@{value}  { padding:        ~"@{value}px 0" !important; }
+  .@{prefix}-pt-@{value}  { padding-top:    ~"@{value}px" !important; }
+  .@{prefix}-pl-@{value}  { padding-left:   ~"@{value}px" !important; }
+  .@{prefix}-pr-@{value}  { padding-right:  ~"@{value}px" !important; }
+  .@{prefix}-pb-@{value}  { padding-bottom: ~"@{value}px" !important; }
+}

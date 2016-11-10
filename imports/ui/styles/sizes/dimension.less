@@ -1,0 +1,40 @@
+.make-prefix-dimension(@prefix) {
+  .make-dimensions(@prefix; @size:5; );
+  .make-dimensions(@prefix; @size:10; );
+  .make-dimensions(@prefix; @size:15; );
+  .make-dimensions(@prefix; @size:20; );
+  .make-dimensions(@prefix; @size:25; );
+  .make-dimensions(@prefix; @size:30; );
+  .make-dimensions(@prefix; @size:35; );
+  .make-dimensions(@prefix; @size:40; );
+  .make-dimensions(@prefix; @size:45; );
+  .make-dimensions(@prefix; @size:50; );
+  .make-dimensions(@prefix; @size:55; );
+  .make-dimensions(@prefix; @size:60; );
+  .make-dimensions(@prefix; @size:65; );
+  .make-dimensions(@prefix; @size:70; );
+  .make-dimensions(@prefix; @size:75; );
+  .make-dimensions(@prefix; @size:80; );
+  .make-dimensions(@prefix; @size:85; );
+  .make-dimensions(@prefix; @size:90; );
+  .make-dimensions(@prefix; @size:95; );
+  .make-dimensions(@prefix; @size:100; );
+  .make-dimensions(@prefix; @size:110; );
+  .make-dimensions(@prefix; @size:120; );
+  .make-dimensions(@prefix; @size:130; );
+  .make-dimensions(@prefix; @size:140; );
+  .make-dimensions(@prefix; @size:150; );
+  .make-dimensions(@prefix; @size:200; );
+  .make-dimensions(@prefix; @size:250; );
+  .make-dimensions(@prefix; @size:300; );
+  .make-dimensions(@prefix; @size:350; );
+  .make-dimensions(@prefix; @size:400; );
+  .make-dimensions(@prefix; @size:450; );
+  .make-dimensions(@prefix; @size:500; );
+}
+
+// define dimensions
+.make-dimensions(@prefix; @size;) {
+  .@{prefix}-dimh-@{size} { height: ~"@{size}px" !important; }
+  .@{prefix}-dimw-@{size} { width:  ~"@{size}px" !important; }
+}

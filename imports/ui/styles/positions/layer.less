@@ -1,0 +1,23 @@
+@centerLayer: 2;
+
+// set all layers for prefix
+.make-prefix-layer(@prefix) {
+  .make-layer-center(@prefix);
+  .make-layer-level(@prefix; @layer:1; );
+  .make-layer-level(@prefix; @layer:2; );
+  .make-layer-level(@prefix; @layer:3; );
+  .make-layer-level(@prefix; @layer:4; );
+  .make-layer-level(@prefix; @layer:5; );
+}
+
+// define level layers
+.make-layer-level(@prefix; @layer;) {
+  @posLayer: @layer + @centerLayer;
+  @negLayer: @centerLayer - @layer;
+  .@{prefix}-layer-back-@{layer} { z-index: ~"@{negLayer}" !important; }
+  .@{prefix}-layer-front-@{layer} { z-index: ~"@{posLayer}" !important; }
+}
+// define center layer
+.make-layer-center(@prefix) {
+  .@{prefix}-layer-center        { z-index: ~"@{centerLayer}" !important; }
+}

@@ -1,0 +1,68 @@
+<md-content layout="row" layout-align="center start" layout-fill layout-margin>
+    <md-whiteframe class="md-whiteframe-z2" layout="column" flex flex-md="50" flex-lg="50" flex-gt-lg="33" layout-fill>
+        <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
+            <div class="md-toolbar-tools md-toolbar-tools-bottom" layout="row">
+                <h3 class="md-display-1">
+                  Register a new account
+                </h3>
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-fill layout-margin layout-padding>
+
+            <div layout="row" layout-fill layout-margin>
+                <p class="md-body-2">
+                    Use your email?
+                </p>
+            </div>
+
+            <form name="registerForm" layout="column" layout-fill layout-padding layout-margin>
+                <md-input-container>
+                    <label>
+                        Email
+                    </label>
+                    <input type="text" ng-model="register.credentials.email" placeholder="email" aria-label="email" required>
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        Password
+                    </label>
+                    <input type="password" ng-model="register.credentials.password" placeholder="password" aria-label="password" required/>
+                </md-input-container>
+
+                <div layout="row" layout-align="end center">
+                    <md-button class="md-raised md-primary" ng-click="register.register()" aria-label="login" ng-disabled="register.registerForm.$invalid()">
+                        Register
+                    </md-button>
+                </div>
+            </form>
+
+            <md-divider class="inset"></md-divider>
+
+            <div layout="row" layout-fill layout-margin layout-padding layout-align="center" layout-wrap>
+              <md-button ng-click="register.loginGoogle()" class="md-raised">
+                  <md-icon class="xs-va-wbm" style="color: #DC4A38;">{{ 'google' | mdiIconFilter }}</md-icon>
+                  <span>Google</span>
+              </md-button>
+              <md-button ng-click="register.loginFacebook()" class="md-raised">
+                  <md-icon class="xs-va-wbm" style="color: #3F62B4;">{{ 'facebook-box' | mdiIconFilter }}</md-icon>
+                  <span>Facebook</span>
+              </md-button>
+            </div>
+
+            <md-toolbar class="md-warn" ng-show="register.error" layout="row" layout-fill layout-padding layout-margin>
+                <p class="md-body-1">
+                    {{ register.error }}
+                </p>
+            </md-toolbar>
+
+            <md-divider></md-divider>
+
+            <div layout="row" layout-align="center">
+                <a href="/login" class="md-button">
+                  Already a user?
+                </a>
+            </div>
+        </div>
+    </md-whiteframe>
+</md-content>

@@ -1,0 +1,29 @@
+@import "./padding.less";
+
+/**
+  * Variables declaration
+  */
+@screen-sm: 480px;
+@screen-md: 768px;
+@screen-lg: 992px;
+@screen-xl: 1600px;
+
+/**
+  * Here we use classes from other imported files
+  */
+.make-all-spaces(@prefix) {
+    .make-prefix-padding(@prefix);
+}
+.make-all-spaces-by-screen(@screen; @prefix) {
+    @media (min-width: @screen) {
+        .make-all-spaces(@prefix);
+    }
+}
+/**
+  * Set space classes version for each screen
+  */
+.make-all-spaces(@prefix: xs;);
+.make-all-spaces-by-screen(@screen: @screen-sm; @prefix: sm;);
+.make-all-spaces-by-screen(@screen: @screen-md; @prefix: md;);
+.make-all-spaces-by-screen(@screen: @screen-lg; @prefix: lg;);
+.make-all-spaces-by-screen(@screen: @screen-xl; @prefix: xl;);

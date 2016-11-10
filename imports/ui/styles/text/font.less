@@ -1,0 +1,35 @@
+// set all paddings for prefix
+.make-prefix-font-size(@prefix) {
+  .make-font-size(@prefix; @value:45; );
+  .make-font-size(@prefix; @value:40; );
+  .make-font-size(@prefix; @value:35; );
+  .make-font-size(@prefix; @value:30; );
+  .make-font-size(@prefix; @value:25; );
+  .make-font-size(@prefix; @value:20; );
+  .make-font-size(@prefix; @value:15; );
+  .make-font-size(@prefix; @value:10; );
+  .make-font-size(@prefix; @value:7;  );
+  .make-font-size(@prefix; @value:5;  );
+  .make-font-size(@prefix; @value:0;  );
+  .make-font-others(@prefix);
+}
+
+// set all fonts sizes
+.make-font-size(@prefix; @value) {
+  .@{prefix}-fsz-@{value}  { font-size: ~"@{value}px" !important; }
+}
+
+.make-font-others(@prefix) {
+  .@{prefix}-fsz-wxl  { font-size: ~"-webkit-xxx-large" !important; }
+  .@{prefix}-fsz-inh  { font-size: ~"inherit" !important; }
+  .@{prefix}-fsz-ini  { font-size: ~"initial" !important; }
+  .@{prefix}-fsz-lg   { font-size: ~"large" !important; }
+  .@{prefix}-fsz-lgr  { font-size: ~"larger" !important; }
+  .@{prefix}-fsz-med  { font-size: ~"medium" !important; }
+  .@{prefix}-fsz-sm   { font-size: ~"small" !important; }
+  .@{prefix}-fsz-smr  { font-size: ~"smaller" !important; }
+  .@{prefix}-fsz-xlg  { font-size: ~"x-large" !important; }
+  .@{prefix}-fsz-xsm  { font-size: ~"x-small" !important; }
+  .@{prefix}-fsz-xxl  { font-size: ~"xx-large" !important; }
+  .@{prefix}-fsz-xxs  { font-size: ~"xx-small" !important; }
+}

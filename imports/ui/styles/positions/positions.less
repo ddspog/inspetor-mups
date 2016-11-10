@@ -1,0 +1,51 @@
+// set all paddings for prefix
+.make-prefix-position(@prefix) {
+  .make-position(@prefix; @value:55; );
+  .make-position(@prefix; @value:50; );
+  .make-position(@prefix; @value:45; );
+  .make-position(@prefix; @value:40; );
+  .make-position(@prefix; @value:35; );
+  .make-position(@prefix; @value:30; );
+  .make-position(@prefix; @value:25; );
+  .make-position(@prefix; @value:20; );
+  .make-position(@prefix; @value:15; );
+  .make-position(@prefix; @value:10; );
+  .make-position(@prefix; @value:7;  );
+  .make-position(@prefix; @value:5;  );
+  .make-position(@prefix; @value:0;  );
+  .make-position-others(@prefix);
+}
+
+// set all paddings
+.make-position(@prefix; @value) {
+  .@{prefix}-posb-@{value}  { bottom:  ~"@{value}px" !important; }
+  .@{prefix}-posbi-@{value} { bottom:  ~"-@{value}px" !important; }
+  .@{prefix}-post-@{value}  { top:     ~"@{value}px" !important; }
+  .@{prefix}-posti-@{value} { top:     ~"-@{value}px" !important; }
+  .@{prefix}-posl-@{value}  { left:    ~"@{value}px" !important; }
+  .@{prefix}-posli-@{value} { left:    ~"-@{value}px" !important; }
+  .@{prefix}-posr-@{value}  { right:   ~"@{value}px" !important; }
+  .@{prefix}-posri-@{value} { right:   ~"-@{value}px" !important; }
+}
+
+.make-position-others(@prefix) {
+  .@{prefix}-posb-inh  { bottom:  ~"inherit" !important; }
+  .@{prefix}-posb-ini  { bottom:  ~"initial" !important; }
+  .@{prefix}-posb-aut  { bottom:  ~"auto" !important; }
+  .@{prefix}-post-inh  { top:  ~"inherit" !important; }
+  .@{prefix}-post-ini  { top:  ~"initial" !important; }
+  .@{prefix}-post-aut  { top:  ~"auto" !important; }
+  .@{prefix}-posl-inh  { left:  ~"inherit" !important; }
+  .@{prefix}-posl-ini  { left:  ~"initial" !important; }
+  .@{prefix}-posl-aut  { left:  ~"auto" !important; }
+  .@{prefix}-posr-inh  { right:  ~"inherit" !important; }
+  .@{prefix}-posr-ini  { right:  ~"initial" !important; }
+  .@{prefix}-posr-aut  { right:  ~"auto" !important; }
+  .@{prefix}-pos-abs   { position:  ~"absolute" !important; }
+  .@{prefix}-pos-fix   { position:  ~"fixed" !important; }
+  .@{prefix}-pos-inh   { position:  ~"inherit" !important; }
+  .@{prefix}-pos-ini   { position:  ~"initial" !important; }
+  .@{prefix}-pos-rel   { position:  ~"relative" !important; }
+  .@{prefix}-pos-sta   { position:  ~"static" !important; }
+
+}

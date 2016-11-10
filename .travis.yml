@@ -1,0 +1,20 @@
+sudo: required
+# The language specific base vm to use for this repository
+language: node_js
+
+# The node.js version to install
+node_js: "0.10.40"
+
+install:
+  # Install meteor
+  - "curl https://install.meteor.com | /bin/sh"
+  # Adding meteor to the $PATH
+  - "export PATH=$HOME/.meteor:$PATH"
+  # Verify version
+  - "meteor --version"
+  # Load other packages
+  - "npm -g install spacejam@1.6.1"
+
+# For testing meteor packages, that's all that is needed.
+script:
+  - "spacejam-mocha ./"

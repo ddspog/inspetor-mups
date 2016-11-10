@@ -1,0 +1,20 @@
+parties-list {
+    [ui-sref] {
+        cursor: pointer;
+    }
+}
+.decoration-background-bar {
+    position: fixed;
+    -webkit-filter: blur(7px) opacity(40%);
+    top: 0;
+    right: 0;
+    left: -10px;
+    min-height: 100%;
+    background-image: url("/images/background/party-lights.jpg");
+    background-size: cover;
+}
+@import "./pageButton.less";
+@import "../partyRemove/partyRemove.less";
+@import "../partyAddButton/partyAddButton.less";
+@import "../partyAddButton/partyAddModal.less";
+@import "../partyRsvpsList/partyRsvpsList.less";

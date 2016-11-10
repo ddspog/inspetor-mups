@@ -1,0 +1,5 @@
+<md-input-container layout="row" layout-align="center center">
+    <md-button class="md-raised lg-layer-front-1" md-colors="{background: 'grey-50'}" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</md-button>
+    <div class="range-label">Displaying {{ range.lower }} - {{ range.upper }} of {{ range.total }}</div>
+    <md-button class="md-raised lg-layer-front-1" md-colors="{background: 'grey-50'}" ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</md-button>
+</md-input-container>
