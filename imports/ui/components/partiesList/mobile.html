@@ -1,0 +1,48 @@
+<div layout="column" layout-padding layout-align="top">
+    <party-add-button ng-show="partiesList.isLoggedIn"></party-add-button>
+
+    <div flex    layout="column" layout-align="center center">
+        <div flex layout="column">
+            <md-card dir-paginate="party in partiesList.parties | itemsPerPage: partiesList.perPage" total-items="partiesList.partiesCount" class="lg-layer-front-1">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" ui-sref="partyDetails({ partyId: party._id })">
+                        {{party.name}}
+                            <party-remove party></party-remove>
+                        </span>
+                    </md-card-title-text>
+                    <md-card-title-media ng-if="party.images">
+                        <div class="md-media-lg card-media">
+                            <party-image images="party.images"></party-image>
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-content>
+                    {{party.description}}
+                </md-card-content>
+                <md-card-actions>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <dir-pagination-controls flex="10" on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+    </div>
+
+    <!-- <div class="list list-mobile">
+      <div class="card" ng-repeat="party in partiesList.parties">
+        <div class="item">
+          <h2>
+            {{party.name}}
+          </h2>
+          <p>
+            {{party.description}}
+          </p>
+        </div>
+
+        <div class="item item-image">
+          <party-image images="party.images"></party-image>
+        </div>
+
+        <party-rsvps-list class="item" rsvps="party.rsvps"></party-rsvps-list>
+      </div>
+    </div> -->
+</div>

@@ -6,8 +6,12 @@ import utilsPagination from 'angular-utils-pagination';
 import {
     Counts
 } from 'meteor/tmeasday:publish-counts';
+import {
+    Meteor
+} from 'meteor/meteor';
 
-import partiesListTemplate from './partiesList.html';
+import webTemplate from './web.html';
+import mobileTemplate from './mobile.html';
 import pageButtonTemplate from './pageButton.html';
 
 import {
@@ -31,6 +35,9 @@ import {
 import {
     name as PartyRsvpsList
 } from '../partyRsvpsList/partyRsvpsList';
+import {
+    name as PartyImage
+} from '../partyImage/partyImage';
 
 import {
     name as MDIIconFilter
@@ -59,6 +66,7 @@ class PartiesList {
         }, this.getReactively('searchText')]);
 
         this.subscribe('users');
+        this.subscribe('images');
 
         this.helpers({
             parties() {
@@ -92,6 +100,7 @@ class PartiesList {
 }
 
 const name = 'partiesList';
+const partiesListTemplate = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [
@@ -104,6 +113,7 @@ export default angular.module(name, [
         PartyCreator,
         PartyRsvp,
         PartyRsvpsList,
+        PartyImage,
         MDIIconFilter
     ]).component(name, {
         template: partiesListTemplate,
