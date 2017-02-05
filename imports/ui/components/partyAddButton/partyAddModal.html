@@ -1,16 +1,16 @@
-<md-dialog aria-label="New party" ng-cloak>
+<md-dialog aria-label="Novo Registro" ng-cloak>
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2>New party</h2>
+            <h2 md-colors="{color: 'grey-100'}">Novo Registro</h2>
             <span flex></span>
             <md-button ng-click="partyAddModal.close()">
-                Close
+                Cancelar
             </md-button>
         </div>
     </md-toolbar>
     <md-dialog-content>
         <div class="md-dialog-content">
-            <party-add-button done="partyAddModal.close()"></party-add-button>
+            <party-add-form done="partyAddModal.close()"></party-add-form>
         </div>
     </md-dialog-content>
 </md-dialog>

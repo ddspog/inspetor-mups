@@ -33,8 +33,14 @@ class PartyAddButton {
             template: modalTemplate,
             targetEvent: event,
             parent: angular.element(document.body),
-            clickOutsideToClose: true,
-            fullscreen: this.$mdMedia('sm') || this.$mdMedia('xs')
+            clickOutsideToClose: this.$mdMedia('gt-sm') || this.$mdMedia('md')
+                || this.$mdMedia('gt-md') || this.$mdMedia('lg')
+                || this.$mdMedia('gt-lg') || this.$mdMedia('xl'),
+            fullscreen: this.$mdMedia('sm') || this.$mdMedia('gt-xs') ||
+                this.$mdMedia('xs')
+        }).finally(function(){
+            // Called on Exit of Modal, clicking on 'Close' or outside modal.
+            // console.log('PartyAddModal has called ClickOutsideToClose');
         });
     }
 }
