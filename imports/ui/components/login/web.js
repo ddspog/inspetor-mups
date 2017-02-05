@@ -9,10 +9,7 @@ import {
     Accounts
 } from 'meteor/accounts-base';
 
-import webTemplate from './web.html';
-import { Login as LoginWeb } from './web';
-import mobileTemplate from './mobile.html';
-import { Login as LoginMobile } from './mobile';
+import template from './web.html';
 
 import {
     name as Register
@@ -32,10 +29,19 @@ import {
     AfterLogInout
 } from '../../callbacks/redirect/redirectCallback';
 
-const name = 'login';
+class Login extends SocialGate {
+    constructor($scope, $reactive, $state) {
+        super($scope, $reactive, $state);
+    }
 
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
-const controller = Meteor.isCordova  ? LoginMobile : LoginWeb;
+    login() {
+        Meteor.loginWithPassword(this.credentials.email, this.credentials.password,
+            this.$bindToContext(AfterLogInout(this, 'parties'))
+        );
+    }
+}
+
+const name = 'login';
 
 // create a module
 export default angular.module(name, [
@@ -45,8 +51,8 @@ export default angular.module(name, [
     ])
     .component(name, {
         template,
-        controller,
-        controllerAs: name
+        controllerAs: name,
+        controller: Login
     })
     .config(config)
     .service('Monitor', MonitorProvider)

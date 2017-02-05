@@ -3,10 +3,16 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import {
+    Meteor
+} from 'meteor/meteor';
+import {
     Accounts
 } from 'meteor/accounts-base';
 
-import template from './register.html';
+import webTemplate from './web.html';
+import { Register as RegisterWeb } from './web';
+import mobileTemplate from './mobile.html';
+import { Register as RegisterMobile } from './mobile';
 
 import {
     name as MDIIconFilter
@@ -22,19 +28,10 @@ import {
     AfterLogInout
 } from '../../callbacks/redirect/redirectCallback';
 
-class Register extends SocialGate {
-    constructor($scope, $reactive, $state) {
-        super($scope, $reactive, $state);
-    }
-
-    register() {
-        Accounts.createUser(this.credentials,
-            this.$bindToContext(AfterLogInout(this, 'parties'))
-        );
-    }
-}
-
 const name = 'register';
+
+const template = Meteor.isCordova ? mobileTemplate : webTemplate;
+const controller = Meteor.isCordova  ? RegisterMobile : RegisterWeb;
 
 // create a module
 export default angular.module(name, [
@@ -44,8 +41,8 @@ export default angular.module(name, [
     ])
     .component(name, {
         template,
-        controllerAs: name,
-        controller: Register
+        controller,
+        controllerAs: name
     })
     .config(config)
     .service('Monitor', MonitorProvider)
