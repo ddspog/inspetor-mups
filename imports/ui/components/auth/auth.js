@@ -8,7 +8,8 @@ import {
     Accounts
 } from 'meteor/accounts-base';
 
-import template from './auth.html';
+import webTemplate from './web.html';
+import mobileTemplate from './mobile.html';
 
 import {
     name as DisplayNameFilter
@@ -55,6 +56,7 @@ class Auth {
 }
 
 const name = 'auth';
+const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // create  a module
 export default angular.module(name, [

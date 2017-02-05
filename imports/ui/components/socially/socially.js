@@ -1,9 +1,17 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
+import ngSanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
+import 'ionic-sdk/release/js/ionic';
+import 'ionic-sdk/release/js/ionic-angular';
+import 'ionic-sdk/release/css/ionic.css';
 
-import template from './socially.html';
+import { Meteor } from 'meteor/meteor';
+
+import webTemplate from './web.html';
+import mobileTemplate from './mobile.html';
+
 import {
     name as PartiesList
 } from '../partiesList/partiesList';
@@ -20,17 +28,20 @@ import {
 class Socially {}
 
 const name = 'socially';
+const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [
         angularMeteor,
         ngMaterial,
+        ngSanitize,
         uiRouter,
         PartiesList,
         PartyDetails,
         Navigation,
         Auth,
-        'accounts.ui'
+        'accounts.ui',
+        'ionic'
     ]).component(name, {
         template,
         controllerAs: name,
@@ -51,16 +62,28 @@ function config($locationProvider, $urlRouterProvider, $mdIconProvider, $mdThemi
     $mdIconProvider
         .defaultFontSet('mdi');
 
-    $mdThemingProvider.theme('default')
-        .primaryPalette('deep-orange', {
-          'default': '700',
-          'hue-1': '500',
-          'hue-2': '100'
-        })
-        .warnPalette('blue')
-        .accentPalette('red', {
-          'default': 'A200'
-        });
+    if (Meteor.isCordova) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue', {
+              'default': '700',
+              'hue-1': '500',
+              'hue-2': '100'
+            })
+            .accentPalette('amber', {
+              'default': 'A200'
+            });
+    } else {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('deep-orange', {
+              'default': '700',
+              'hue-1': '500',
+              'hue-2': '100'
+            })
+            .warnPalette('blue')
+            .accentPalette('red', {
+              'default': 'A200'
+            });
+    }
 }
 
 function run($rootScope, $state) {
