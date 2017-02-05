@@ -1,4 +1,5 @@
 @import "./font.less";
+@import "./alignment.less";
 
 /**
   * Variables declaration
@@ -13,6 +14,7 @@
   */
 .make-all-text(@prefix) {
     .make-prefix-font-size(@prefix);
+    .make-prefix-text-alignment(@prefix);
 }
 .make-all-text-by-screen(@screen; @prefix) {
     @media (min-width: @screen) {
