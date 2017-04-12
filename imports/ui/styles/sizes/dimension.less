@@ -24,7 +24,9 @@
   .make-dimensions(@prefix; @size:130; );
   .make-dimensions(@prefix; @size:140; );
   .make-dimensions(@prefix; @size:150; );
+  .make-dimensions(@prefix; @size:180; );
   .make-dimensions(@prefix; @size:200; );
+  .make-dimensions(@prefix; @size:240; );
   .make-dimensions(@prefix; @size:250; );
   .make-dimensions(@prefix; @size:300; );
   .make-dimensions(@prefix; @size:350; );
@@ -37,4 +39,12 @@
 .make-dimensions(@prefix; @size;) {
   .@{prefix}-dimh-@{size} { height: ~"@{size}px" !important; }
   .@{prefix}-dimw-@{size} { width:  ~"@{size}px" !important; }
+}
+
+.limit-img-to-container {
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
