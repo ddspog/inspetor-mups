@@ -1,4 +1,5 @@
 import angular from 'angular';
+//noinspection JSUnresolvedVariable
 import MDIToUnicode from './mdiIconsTable.json';
 
 const name = 'mdiIconFilter';

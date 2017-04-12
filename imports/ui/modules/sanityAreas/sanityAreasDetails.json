@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Abastecimento de águas.",
+    "value": 0,
+    "icon": "water-pump",
+    "subAreas": [
+      {
+        "name": "Vazamento em redes",
+        "description": "Vazão em tubulações, conexões, peças, caixas d'água que compõem a rede de distribuição.",
+        "value": 0
+      },
+      {
+        "name": "Qualidade da água",
+        "description": "Variações na cor, turbidez, odor ou sabor da água disponível.",
+        "value": 1
+      },
+      {
+        "name": "Hidrômetros defeituosos",
+        "description": "Problemas com aparelhos de micromedição, como os hidrômetros.",
+        "value": 2
+      },
+      {
+        "name": "Falta d'água",
+        "description": "Intermitências no abastecimento de água.",
+        "value": 3
+      },
+      {
+        "name": "Outros",
+        "description": "Diversos problemas relacionados ao abastecimento de água.",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Tratamento de esgoto.",
+    "value": 1,
+    "icon": "emoticon-poop",
+    "subAreas": [
+      {
+        "name": "Vazamento na rede",
+        "description": "Vazão em tubulações na rede de coleta do esgoto.",
+        "value": 0
+      },
+      {
+        "name": "Entupimento da rede",
+        "description": "Obstrução nas tubulações da rede de coleta e/ou em fossas.",
+        "value": 1
+      },
+      {
+        "name": "Ligação de esgoto em canais",
+        "description": "Despejo de esgoto em rede de drenagem, composta por galerias, canais, etc.",
+        "value": 2
+      },
+      {
+        "name": "Esgoto a céu aberto",
+        "description": "Contaminação do solo com o despejo de esgoto.",
+        "value": 3
+      },
+      {
+        "name": "Outros",
+        "description": "Diversos problemas relacionados a coleta de esgoto.",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Escoamento da chuva.",
+    "value": 2,
+    "icon": "weather-pouring",
+    "subAreas": [
+      {
+        "name": "Contaminação das galerias com esgoto",
+        "description": "Galerias contaminadas com esgoto despejado em proximidades.",
+        "value": 0
+      },
+      {
+        "name": "Poços e/ou alagamentos",
+        "description": "Pontos de empoçamentos e/ou alagamento de áreas.",
+        "value": 1
+      },
+      {
+        "name": "Inundação de edificações",
+        "description": "Edificações inundadas pela água da chuva (salas de aula, biblioteca, etc).",
+        "value": 2
+      },
+      {
+        "name": "Danos no sistema",
+        "description": "Elementos do sistema de drenagem danificados (calhas, tubulações de água pluvial, sarjetas, galerias, bocas de lobo).",
+        "value": 3
+      },
+      {
+        "name": "Outros",
+        "description": "Diversos problemas relacionados a drenagem de águas pluviais.",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Coleta de lixo.",
+    "value": 3,
+    "icon": "delete",
+    "subAreas": [
+      {
+        "name": "Lixo a céu aberto",
+        "description": "Resíduos sólidos a céu aberto e/ou em recipientes não apropriados.",
+        "value": 0
+      },
+      {
+        "name": "Falta de coleta seletiva",
+        "description": "Ausência de uma separação de lixo por categorias: papel, metal, plástico, vidro ou orgânico.",
+        "value": 1
+      },
+      {
+        "name": "Mau-cheiro em lixos",
+        "description": "Lixo orgânico mal acondicionado.",
+        "value": 2
+      },
+      {
+        "name": "Insetos e roedores em Lixo",
+        "description": "Aparição de vetores provenientes de lixo como: ratos, baratas, moscas, mosquitos, etc.",
+        "value": 3
+      },
+      {
+        "name": "Presença de lixo perigoso",
+        "description": "Resíduos perigosos juntos ao lixo: tóxicos, eletrônicos, etc.",
+        "value": 4
+      },
+      {
+        "name": "Outros",
+        "description": "Diversos problemas relacionados a coleta de lixo.",
+        "value": 5
+      }
+    ]
+  }
+]

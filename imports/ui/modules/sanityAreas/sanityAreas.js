@@ -1,44 +1,28 @@
-import angular from 'angular';
+//noinspection JSUnresolvedVariable
 import SanityAreasDetails from './sanityAreasDetails.json';
 
-const name = 'displaySanityAreaFilter';
-
-function GetSanityAreas() {
+export function GetSanityAreas() {
     return SanityAreasDetails;
 }
 
-function GetSanityArea(areaValue) {
-
-    if (!areaValue) {
-        return '';
+export function GetSanityArea(areaValue) {
+    if (areaValue) {
+        return SanityAreasDetails[areaValue];
     }
-
-    return SanityAreasDetails[areaValue];
 }
 
-function GetSanitySubAreas(areaValue) {
-    if (!areaValue) {
-        return '';
+export function GetSanitySubAreas(areaValue) {
+    if (areaValue) {
+        let area = GetSanityArea(areaValue);
+
+        return area.subAreas;
     }
-
-    var area = GetSanityArea(areaValue);
-
-    return area.subAreas;
 }
 
-function GetSanitySubArea(areaValue, subAreaValue) {
+export function GetSanitySubArea(areaValue, subAreaValue) {
+    if (areaValue && subAreaValue) {
+        let area = GetSanityArea(areaValue);
 
-    if (!areaValue || !subAreaValue) {
-        return '';
+        return area.subAreas[subAreaValue];
     }
-
-    var area = GetSanityArea(areaValue);
-
-    return area.subAreas[subAreaValue];
 }
-
-// create a module
-export angular.module('displaySanityAreaFilter', [])
-    .filter('displaySanityAreaFilter', () => {
-        return DisplaySanityAreaFilter;
-    });
