@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import template from './partyImage.html';
-import { Images } from '../../../api/images';
+import { Images } from '../../../api/images/index';
 import {
     name as DisplayImageFilter 
 } from '../../filters/displayImage/displayImageFilter';
@@ -14,10 +14,10 @@ class PartyImage {
 
     this.helpers({
       mainImage() {
-        const images = this.getReactively('images', true);
-        if (images) {
+        const image = this.getReactively('image', true);
+        if (image) {
           return Images.findOne({
-            _id: images[0]
+            _id: image
           });
         }
       }
@@ -34,7 +34,7 @@ export default angular.module(name, [
 ]).component(name, {
   template,
   bindings: {
-    images: '<'
+    image: '<'
   },
   controllerAs: name,
   controller: PartyImage

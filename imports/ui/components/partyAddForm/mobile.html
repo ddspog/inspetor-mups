@@ -3,7 +3,7 @@
         <label class="xs-pos-rel xs-posti-15 xs-posli-5">
             Foto da falha identificada:
         </label>
-        <party-upload files="partyAddForm.party.images"></party-upload>
+        <party-upload file="partyAddForm.party.image" control="partyAddForm.uploader"></party-upload>
     </md-input-container>
 
     <md-input-container>
@@ -19,7 +19,7 @@
         <label class="xs-pos-rel xs-posti-15 xs-posli-5">
             Área do Problema:
         </label>
-        <md-radio-group required ng-model="partyAddForm.party.area">
+        <md-radio-group required ng-model="partyAddForm.party.type.area" ng-change="partyAddForm.updateSubArea()">
             <md-radio-button ng-repeat="it in partyAddForm.areas"
                              class="md-primary"
                              ng-value="it.value"
@@ -32,9 +32,22 @@
     </md-input-container>
     <md-input-container>
         <label>
+            Subárea do Problema:
+        </label>
+        <md-select required ng-model="partyAddForm.party.type.subArea">
+            <md-option ng-repeat="it in partyAddForm.subAreaList" value="{{it.value}}">
+                <span ng-bind="it.name"></span>
+            </md-option>
+        </md-select>
+        <div class="hint">
+            {{partyAddForm.subAreaDescription}}
+        </div>
+    </md-input-container>
+    <md-input-container>
+        <label>
             Notas:
         </label>
-        <textarea md-maxlength="200" rows="5" md-select-on-focus ng-model="partyAddForm.party.description"></textarea>
+        <textarea md-maxlength="200" rows="5" md-select-on-focus ng-model="partyAddForm.party.notes"></textarea>
         <div class="hint">
             O que viu mais detalhes úteis.
         </div>

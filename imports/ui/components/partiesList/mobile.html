@@ -11,14 +11,14 @@
                             <party-remove party></party-remove>
                         </span>
                     </md-card-title-text>
-                    <md-card-title-media ng-if="party.images">
+                    <md-card-title-media ng-if="party.image">
                         <div class="md-media-lg card-media">
-                            <party-image images="party.images"></party-image>
+                            <party-image image="party.image"></party-image>
                         </div>
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-content>
-                    {{party.description}}
+                    {{ party.type | sanityProblemTypeFilter }}
                 </md-card-content>
                 <md-card-actions>
                 </md-card-actions>

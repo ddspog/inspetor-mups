@@ -42,6 +42,9 @@ import {
 import {
     name as MDIIconFilter
 } from '../../filters/mdiIcon/mdiIconFilter';
+import {
+    name as SanityProblemTypeFilter
+} from '../../filters/sanityProblemType/sanityProblemTypeFilter';
 
 /**
  *  PartiesList Component
@@ -114,7 +117,8 @@ export default angular.module(name, [
         PartyRsvp,
         PartyRsvpsList,
         PartyImage,
-        MDIIconFilter
+        MDIIconFilter,
+        SanityProblemTypeFilter
     ]).component(name, {
         template: partiesListTemplate,
         controllerAs: name,

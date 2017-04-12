@@ -15,47 +15,79 @@ import { name as PartyUpload
 } from '../partyUpload/partyUpload';
 
 import {
-    name as MDIIconFilter
-} from '../../filters/mdiIcon/mdiIconFilter';
+    GetSanityAreas
+} from '../../modules/sanityAreas/sanityAreas';
 
 class PartyAddForm {
-    constructor() {
-        this.party = {};
+    constructor($scope, $reactive) {
+        'ngInject';
 
-        this.areas = [
-            {
-                name: "Abastecimento de águas.",
-                value: "0",
-                icon: "water-pump"
-            },
-            {
-                name: "Tratamento de esgoto.",
-                value: "1",
-                icon: "emoticon-poop"
-            },
-            {
-                name: "Escoamento da chuva.",
-                value: "2",
-                icon: "weather-pouring"
-            },
-            {
-                name: "Coleta de lixo.",
-                value: "3",
-                icon: "delete"
+        $reactive(this).attach($scope);
+
+        this.party = {
+            type: {
+                area: 0,
+                subArea: 0
             }
-        ]
+        };
+
+        this.uploadPicture = undefined;
+
+        this.areas = GetSanityAreas();
+
+        this.helpers({
+           subAreaList() {
+               var index_area = this.getReactively('party.type.area');
+
+               if(index_area != null && index_area > -1 && index_area < 5) {
+                   var area = this.areas[index_area];
+                   return area.subAreas;
+               } else {
+                   return undefined;
+               }
+           },
+           subAreaDescription() {
+               var index_area = this.getReactively('party.type.area');
+               var index_subArea = this.getReactively('party.type.subArea');
+
+               if(index_subArea){
+                   var area = this.areas[index_area];
+                   var subArea = area.subAreas[index_subArea];
+
+                   return subArea.description;
+               } else {
+                   return 'Escolha uma subárea para o problema registrado.';
+               }
+           }
+        });
+    }
+
+    learnUpload(upload) {
+        this.uploadPicture = upload;
     }
 
     submit() {
-        this.party.owner = Meteor.userId();
+        if (!this.uploader) {
+            console.log('Missing uploader on Form.')
+        } else {
+            this.uploader.start();
 
-        Parties.insert(this.party);
+            this.party.position = Geolocation.latLng();
 
-        if (this.done) {
-            this.done();
+            this.party.owner = Meteor.userId();
+
+            Parties.insert(this.party);
+
+            if (this.done) {
+                this.done();
+            }
+
+            this.reset();
         }
+    }
 
-        this.reset();
+    updateSubArea() {
+        this.party.type.subArea = null;
     }
 
     reset() {
