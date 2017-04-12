@@ -24,7 +24,7 @@ accounts-google@1.0.11
 tmeasday:publish-counts
 check@1.2.4
 email@1.1.18
-less@2.7.6
+less@2.7.8
 dapearce:material-icons
 service-configuration@1.0.11
 angular:angular-material
@@ -37,6 +37,8 @@ velocity:html-reporter
 velocity:console-reporter
 jalik:ufs
 jalik:ufs-gridfs
-shell-server
+shell-server@0.2.1
 wormy:angularjs-google-maps
 mys:accounts-phone
+mdg:camera
+mdg:geolocation

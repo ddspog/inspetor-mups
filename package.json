@@ -16,6 +16,7 @@
     "angular-sortable-view": "0.0.15",
     "angular-ui-router": "^0.3.2",
     "angular-utils-pagination": "^0.11.1",
+    "babel-runtime": "^6.22.0",
     "gm": "^1.23.0",
     "ionic-sdk": "^1.2.4",
     "meteor-node-stubs": "^0.2.4",
