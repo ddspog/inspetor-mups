@@ -150,4 +150,4 @@ export function rsvp(partyId, rsvp) {
 Meteor.methods({
     invite,
     rsvp
-})
+});

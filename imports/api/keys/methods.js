@@ -16,4 +16,4 @@ export function getGoogleAPIBrowserConfiguration() {
 
 Meteor.methods({
     getGoogleAPIBrowserConfiguration
-})
+});

@@ -1,17 +1,17 @@
 [//]: # ( QUICK NOTE: 72 characters on each line, is love s2.         )
 
-# Contributing to tracking-sanitation-ufcg
+# Contributing to tsu
 
 :+1::tada: First off, thanks for taking the time to contribute!
 :tada::+1:
 
-The following is a set of guidelines for contributing to tracking-sanitation-ufcg (application for tracking sanitation problems at UFCG) and its packages, which are hosted in the [tracking-sanitation-ufcg](https://github.com/ddspog/tracking-sanitation-ufcg) on GitHub. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to tsu (application for tracking sanitation problems at UFCG) and its packages, which are hosted in the [tsu](https://github.com/ddspog/tsu) on GitHub. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
 #### Table Of Contents
 
 [What should I know before I get started?](#what-should-i-know-before-i-get-started)
   * [Code of Conduct](#code-of-conduct)
-  * [tracking-sanitation-ufcg](#tracking-sanitation-ufcg)
+  * [tsu](#tsu)
 
 [How Can I Contribute?](#how-can-i-contribute)
   * [Reporting Bugs](#reporting-bugs)
@@ -34,9 +34,9 @@ This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDU
 By participating, you are expected to uphold this code.
 Please report unacceptable behavior to [ddspog@gmail.com](mailto:ddspog@gmail.com).
 
-### tracking-sanitation-ufcg
+### tsu
 
-tracking-sanitation-ufcg it's a open source project, made to track some sanitation problems at UFCG by its students. These app will be used on Android, for use of GPS, to mark locations.
+tsu it's a open source project, made to track some sanitation problems at UFCG by its students. These app will be used on Android, for use of GPS, to mark locations.
 
 The main purpose of these project it's to collect data for UFCG, helping locating causes of sanitation problems on the university, and also to value some experiments or changes for university structure.
 
@@ -105,13 +105,13 @@ Make pagination a very simple task!
  easy mobile UI development.
 
 Further details on how to use this seed are available on the
-[Wiki](https://github.com/ddspog/tracking-sanitation-ufcg/wiki).
+[Wiki](https://github.com/ddspog/tsu/wiki).
 
 ## How Can I Contribute?
 
 ### Reporting Bugs
 
-This section guides you through submitting a bug report for tracking-sanitation-ufcg. Following these guidelines helps maintainers and the community understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
+This section guides you through submitting a bug report for tsu. Following these guidelines helps maintainers and the community understand your report :pencil:, reproduce the behavior :computer: :computer:, and find related reports :mag_right:.
 
 Before creating bug reports, please check [this list](#before-submitting-a-bug-report) as you might find out that you don't need to create one. When you are creating a bug report, please [include as many details as possible](#how-do-i-submit-a-good-bug-report). Please use the issues templates, for better reading and understanding of the rest of team.
 
@@ -120,10 +120,10 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 * **Check it carefully.** You might be able to find the cause of the
 problem and fix things yourself. Most importantly, check if you can
 reproduce the problem
-[in the latest version of tracking-sanitation-ufcg](https://github.com/ddspog/tracking-sanitation-ufcg).
+[in the latest version of tsu](https://github.com/ddspog/tsu).
 * **Check the FAQs on the forum** for a list of common questions and
 problems.
-* **Perform a [cursory search](https://github.com/ddspog/tracking-sanitation-ufcg/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
+* **Perform a [cursory search](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
  to see if the problem has already been reported. If it has, add a
  comment to the existing issue instead of opening a new one.
 
@@ -131,7 +131,7 @@ problems.
 
 Bugs are tracked as
 [GitHub issues](https://guides.github.com/features/issues/). Create an
- issue on [tracking-sanitation-ufcg](https://github.com/ddspog/tracking-sanitation-ufcg/issues/new) and
+ issue on [tsu](https://github.com/ddspog/tsu/issues/new) and
   provide the following information.
 
 Explain the problem and include additional details to help maintainers
@@ -175,9 +175,9 @@ information using the guidelines below.
 Provide more context by answering these questions:
 
 * **Did the problem start happening recently** (e.g. after updating
-  to a new version of tracking-sanitation-ufcg) or was this always a problem?
+  to a new version of tsu) or was this always a problem?
 * If the problem started happening recently, **can you reproduce the
-problem in an older version of tracking-sanitation-ufcg?** What's the most recent
+problem in an older version of tsu?** What's the most recent
 version in which the problem doesn't happen?
 * **Can you reliably reproduce the issue?** If not, provide details
 about how often the problem happens and under which conditions it
@@ -185,9 +185,9 @@ normally happens.
 
 Include details about your configuration and environment:
 
-* **Which version of tracking-sanitation-ufcg are you using**?
+* **Which version of tsu are you using**?
 * **What's the name and version of the OS you're using**?
-* **Are you running tracking-sanitation-ufcg in a virtual machine?** If so, which VM
+* **Are you running tsu in a virtual machine?** If so, which VM
 software are you using and which operating systems and versions are
 used for the host and the guest?
 * **Which keyboard layout are you using?** Are you using a US layout
@@ -196,7 +196,7 @@ or some other layout?
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion
-for tracking-sanitation-ufcg, including completely new features and minor improvements
+for tsu, including completely new features and minor improvements
  to existing functionality. Following these guidelines helps
  maintainers and the community understand your suggestion :pencil: and
  find related suggestions :mag_right:.
@@ -215,7 +215,7 @@ Before creating enhancement suggestions, please check
 * **Check if this enhancement it's already available**. Most importantly,
  check if you can get the desired behavior by changing configuration.
 * **Perform a
-[cursory search](https://github.com/ddspog/tracking-sanitation-ufcg/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
+[cursory search](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
  to see if the enhancement has already been suggested. If it has, add
  a comment to the existing issue instead of opening a new one.
 
@@ -244,9 +244,9 @@ also has some tips to write the issue as enhancement suggestion.
 
 Unsure where to begin contributing to Atom? You can start by looking through these `beginner` and `help-wanted` issues:
 
-* [Beginner issues](https://github.com/ddspog/tracking-sanitation-ufcg/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Aatom+sort%3Acomments-desc+) -
+* [Beginner issues](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Aatom+sort%3Acomments-desc+) -
 issues which should only require a few lines of code, and a test or two.
-* [Help wanted issues](https://github.com/ddspog/tracking-sanitation-ufcg/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+sort%3Acomments-desc+) -
+* [Help wanted issues](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+sort%3Acomments-desc+) -
  issues which should be a bit more involved than `beginner` issues.
 
 Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.

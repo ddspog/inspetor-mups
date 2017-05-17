@@ -70,19 +70,29 @@ class PartyAddForm {
         if (!this.uploader) {
             console.log('Missing uploader on Form.')
         } else {
+            self = this;
+
+            this.uploader.subscribe("add-party-form", this.$bindToContext((error, fileId) => {
+                if(error) {
+
+                } else {
+                    console.log('Saving id ' + fileId + ' of image uploaded...');
+
+                    self.party.position = Geolocation.latLng();
+                    self.party.image = fileId;
+                    self.party.owner = Meteor.userId();
+
+                    Parties.insert(self.party);
+
+                    if (self.done) {
+                        self.done();
+                    }
+
+                    self.reset();
+                }
+            }));
+
             this.uploader.start();
-
-            this.party.position = Geolocation.latLng();
-
-            this.party.owner = Meteor.userId();
-
-            Parties.insert(this.party);
-
-            if (this.done) {
-                this.done();
-            }
-
-            this.reset();
         }
     }
 

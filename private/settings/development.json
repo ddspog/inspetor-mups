@@ -6,6 +6,9 @@
                 "v": "3.24",
                 "libraries": "weather,geometry,visualization"
             }
+        },
+        "filestack": {
+            "key": "A9vY2uCZ7TrOoHOsesrl5z"
         }
     },
     "oAuth": {

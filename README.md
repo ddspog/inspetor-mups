@@ -1,4 +1,4 @@
-# tracking-sanitation-ufcg
+# tsu
 **v.0.0.1**
 
 meteor-angular-material application to locate sanitation problems at UFCG (federal university of Campina Grande) on Android.
@@ -9,9 +9,9 @@ The app isn't ready to download. We'll post an Play Store link, when app reach v
 
 ### Installing
 
-You may experience some problems, after installing the app, or running a test version. If some of the code don't work right after downloading, report an [issue](https://github.com/ddspog/tracking-sanitation-ufcg/issues/new).
+You may experience some problems, after installing the app, or running a test version. If some of the code don't work right after downloading, report an [issue](https://github.com/ddspog/tsu/issues/new).
 
-Further changes, not displayed there, you can see on [**Wiki**](https://github.com/ddspog/tracking-sanitation-ufcg/wiki) what were made different from the tutorial.
+Further changes, not displayed there, you can see on [**Wiki**](https://github.com/ddspog/tsu/wiki) what were made different from the tutorial.
 
 ### Built With
 
@@ -23,11 +23,11 @@ Further changes, not displayed there, you can see on [**Wiki**](https://github.c
 
 ### Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/ddspog/tracking-sanitation-ufcg/blob/master/.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/ddspog/tsu/blob/master/.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ### Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [Milestones](https://github.com/ddspog/tracking-sanitation-ufcg/milestones).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [Milestones](https://github.com/ddspog/tsu/milestones).
 
 Current version: **v0.0.1**.
 
@@ -39,8 +39,8 @@ Building Android framework.
 
 * **Dênnis Dantas de Sousa** - *Initial work*
 
-See also the list of [contributors](https://github.com/ddspog/tracking-sanitation-ufcg/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/ddspog/tsu/graphs/contributors) who participated in this project.
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/ddspog/tracking-sanitation-ufcg/blob/master/.github/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/ddspog/tsu/blob/master/.github/LICENSE.md) file for details

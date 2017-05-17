@@ -58,7 +58,7 @@ describe('PartyUninvited', function() {
                 address: 'cersei.lannister@kingslanding.com'
             }],
             _id: 'IChooseViolence'
-        }
+        };
 
         beforeEach(function(done) {
             LoadController(PartyUninvited, function(component) {

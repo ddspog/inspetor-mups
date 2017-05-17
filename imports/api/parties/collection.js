@@ -13,4 +13,4 @@ Parties.allow({
   remove(userId, party){
     return userId && party.owner === userId;
   }
-})
+});
