@@ -69,7 +69,6 @@ class PartiesList {
         }, this.getReactively('searchText')]);
 
         this.subscribe('users');
-        this.subscribe('images');
 
         this.helpers({
             parties() {

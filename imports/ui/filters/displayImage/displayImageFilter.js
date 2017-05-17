@@ -11,12 +11,12 @@ function DisplayImageFilter(image) {
 
   // leave it as it is for the web view
   if (!Meteor.isCordova) {
-    return image.url;
+    return image;
   }
 
   // create new path of an image
-  const path = `ufs/${image.store}/${image._id}/${image.name}`;
-  return Meteor.absoluteUrl(path);
+  // const path = `ufs/${image.store}/${image._id}/${image.name}`;
+  return Meteor.absoluteUrl(image.path);
 }
 
 // create a module

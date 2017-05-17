@@ -18,6 +18,10 @@ function onReady() {
 }
 
 if (Meteor.isCordova) {
+    if (Meteor.isClient){
+        Meteor.subscribe('images');
+        Meteor.subscribe('thumbs');
+    }
     angular.element(document).on('deviceready', onReady);
 } else {
     angular.element(document).ready(onReady);

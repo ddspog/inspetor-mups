@@ -1,6 +1,6 @@
 import {UploadFS} from 'meteor/mdg:camera';
 
-import {ImagesStore} from '../../../api/images';
+import {Images, Thumbs} from '../../../api/images';
 
 import {UploadControl} from '../../classes/uploadControl/uploadControl';
 
@@ -24,19 +24,23 @@ export class PartyUpload {
     configureUpload(data) {
         this.image = data;
 
-        this.control = new UploadControl(data, ImagesStore, 'Record Image at ');
+        this.control = new UploadControl({
+            source: data,
+            collection: Images,
+            header: 'Record Image at '
+        });
 
         self = this;
 
         console.log('Configuring upload...');
 
-        this.control.configureCallback(this.$bindToContext((file) => {
-            console.log('Saved image on ImageStore with id = ' + file._id);
-            self.file = file._id;
+        this.control.configureCallback(this.$bindToContext((error, fileId) => {
+            console.log('Saved image on ImageStore with id = ' + fileId);
+            self.file = fileId;
         }));
 
-        this.control.configureError((e, file) => {
-            console.log('Oops, something went wrong when uploading ' + file._id + ' -> ' + e, e);
+        this.control.configureError((error, fileId) => {
+            console.log('The upload has encountered an error -> ' + error, error);
         });
     }
 

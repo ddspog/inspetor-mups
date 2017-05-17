@@ -13,14 +13,17 @@ import {
         }, [...]
     }
 */
+
 function configureEmail(config) {
     // just set the environment variable
     process.env.MAIL_URL = "smtp://" + config.email + ":" + config.password + "@smtp.gmail.com:465/";
 }
 
-Meteor.startup(function() {
-    const emailConfig = Meteor.settings.mailUrl;
-    if (emailConfig) {
-        configureEmail(emailConfig);
-    }
-});
+if(Meteor.isServer){
+    Meteor.startup(function() {
+        const emailConfig = Meteor.settings.mailUrl;
+        if (emailConfig) {
+            configureEmail(emailConfig);
+        }
+    });
+}

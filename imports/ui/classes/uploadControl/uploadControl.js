@@ -1,26 +1,67 @@
-import {upload} from '../../../api/images';
+import {
+    upload
+} from '../../../api/images/methods';
 
 export class UploadControl {
-    constructor(source, store, header) {
+    constructor(config) {
         'ngInject';
 
-        this.source = source;
-        this.store = store;
-        this.header = header;
+        this.source = config.source;
+        this.collection = config.collection;
+        this.header = config.header;
+
+        this.listeners = [];
+    }
+
+    subscribe(name, fn) {
+        this.listeners.push({
+            name,
+            fn
+        });
+    }
+
+    unsubscribe(name) {
+        this.listeners = this.listeners.filter(
+            function (item) {
+                if (item.name !== name) {
+                    return item;
+                }
+            }
+        );
+    }
+
+    notify(e, o, thisObj) {
+        var scope = thisObj || window;
+        var self = this;
+
+        this.listeners.forEach(function (item) {
+            item.fn.call(scope, e, o);
+            self.unsubscribe(item.name);
+        });
     }
 
     configureCallback(fn) {
-        this.callback = fn;
+        var self = this;
+
+        this.callback = function (error, fileId) {
+            fn(error, fileId);
+            self.notify(error, fileId);
+        };
     }
 
     configureError(fn) {
-        this.error = fn;
+        var self = this;
+
+        this.error = function (error, fileId) {
+            fn(error, fileId);
+            self.notify(error, fileId);
+        };
     }
 
     //start upload of files
     start() {
-        console.log('Starting upload...');
-        upload(this.source, this.header + (new Date().toString('YYYY-MM-DDTHH:MM:SSZ')), this.store,
-            this.callback, this.error);
+        console.log('Requesting upload...');
+
+        upload(this.source, this.header + new Date(), this.collection, this.callback, this.error);
     }
 }
