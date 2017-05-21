@@ -2,6 +2,8 @@ import {UploadFS} from 'meteor/mdg:camera';
 
 import {Images, Thumbs} from '../../../api/images';
 
+import {RotateCounterClockwise} from '../../modules/rotate/rotate';
+
 import {UploadControl} from '../../classes/uploadControl/uploadControl';
 
 export class PartyUpload {
@@ -22,7 +24,9 @@ export class PartyUpload {
 
     // create object to start upload of files
     configureUpload(data) {
-        this.image = data;
+        this.$bindToContext(() => {
+            this.image = data;
+        })();
 
         this.control = new UploadControl({
             source: data,
@@ -33,6 +37,7 @@ export class PartyUpload {
         self = this;
 
         console.log('Configuring upload...');
+        console.log('image = ' + this.image);
 
         this.control.configureCallback(this.$bindToContext((error, fileId) => {
             console.log('Saved image on ImageStore with id = ' + fileId);
@@ -52,7 +57,9 @@ export class PartyUpload {
             if (err) {
                 console.log('Oops, something wrong! => ' + err, err);
             } else {
-                self.configureUpload(data);
+                RotateCounterClockwise(data, function(rotatedPicture) {
+                    self.configureUpload(rotatedPicture);
+                });
             }
         }));
     }
