@@ -15,6 +15,14 @@ parties-list {
     .list-mobile > .card:first-child {
         margin-top: 0;
     }
+    
+    img.image-bar {
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+
+        max-width: 100%;
+        height: auto;
+    }
 }
 .decoration-background-bar {
     position: fixed;
@@ -26,7 +34,13 @@ parties-list {
     background-image: url("/images/background/party-lights.jpg");
     background-size: cover;
 }
+
+.parent-cards {
+    overflow: hidden;
+}
+
 @import "./pageButton.less";
+@import "../partyCard/partyCard.less";
 @import "../partyRemove/partyRemove.less";
 @import "../partyAddButton/partyAddButton.less";
 @import "../partyAddButton/partyAddModal.less";

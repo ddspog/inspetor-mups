@@ -1,10 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import {
-    Mongo
-} from 'meteor/mongo';
-
 import template from './partyImage.html';
 import {
   Images, Thumbs

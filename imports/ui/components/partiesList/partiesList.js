@@ -24,20 +24,11 @@ import {
     name as PartyAddButton
 } from '../partyAddButton/partyAddButton';
 import {
-    name as PartyRemove
-} from '../partyRemove/partyRemove';
-import {
     name as PartyCreator
 } from '../partyCreator/partyCreator';
 import {
-    name as PartyRsvp
-} from '../partyRsvp/partyRsvp';
-import {
-    name as PartyRsvpsList
-} from '../partyRsvpsList/partyRsvpsList';
-import {
-    name as PartyImage
-} from '../partyImage/partyImage';
+    name as PartyCard
+} from '../partyCard/partyCard';
 
 import {
     name as MDIIconFilter
@@ -111,11 +102,8 @@ export default angular.module(name, [
         utilsPagination,
         PartiesSort,
         PartyAddButton,
-        PartyRemove,
         PartyCreator,
-        PartyRsvp,
-        PartyRsvpsList,
-        PartyImage,
+        PartyCard,
         MDIIconFilter,
         SanityProblemTypeFilter
     ]).component(name, {
