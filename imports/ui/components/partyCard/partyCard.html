@@ -2,10 +2,12 @@
     <img class="p-image md-card-header"
          ng-src="{{partyCard.getPicture}}" ng-if="partyCard.image"/>
     <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline" ui-sref="partyDetails({ partyId: partyCard.id })">
+        <md-card-title-text layout="row">
+            <span flex="90" class="md-headline" ui-sref="partyDetails({ partyId: partyCard.id })">
                 {{partyCard.name}}
             </span>
+            <md-icon flex="10" class="xs-fsz-24">
+                {{ partyCard.getIcon | mdiIconFilter }}</md-icon>
         </md-card-title-text>
     </md-card-title>
     <md-card-content>

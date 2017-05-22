@@ -2,14 +2,13 @@
     <party-add-button ng-show="partiesList.isLoggedIn"></party-add-button>
 
     <div flex="100" layout="column" layout-align="center center">
-        <md-content flex="90" layout="column" layout-fill>
+        <md-content flex="85" layout="column" layout-fill>
             <div flex="grow" dir-paginate="party in partiesList.parties | itemsPerPage: partiesList.perPage"
                         total-items="partiesList.partiesCount" class="lg-layer-front-1">
                 <party-card id="party._id" name="party.name" image="party.image"
                             type="party.type" has-thumb="party.hasThumb"></party-card>
-
             </div>
         </md-content>
-        <dir-pagination-controls flex="10" on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+        <dir-pagination-controls flex="15" on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
     </div>
 </div>

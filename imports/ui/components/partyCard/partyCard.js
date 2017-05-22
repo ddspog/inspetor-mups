@@ -11,8 +11,14 @@ import {
 } from '../partyRemove/partyRemove';
 
 import {
+    name as MDIIconFilter
+} from '../../filters/mdiIcon/mdiIconFilter';
+import {
     name as SanityProblemTypeFilter
 } from '../../filters/sanityProblemType/sanityProblemTypeFilter';
+import {
+    GetSanityAreas
+} from '../../modules/sanityAreas/sanityAreas';
 
 /**
  *  PartyCard Component
@@ -47,6 +53,17 @@ class PartyCard {
                         return picture.bin;
                     }
                 }
+            },
+
+            getIcon() {
+                if(this.getReactively('id')){
+                    let type = this.getReactively('type');
+                    let areas = GetSanityAreas();
+
+                    if(type && areas){
+                        return areas[type.area].icon;
+                    }
+                }
             }
         });
     }
@@ -58,6 +75,7 @@ const name = 'partyCard';
 export default angular.module(name, [
     angularMeteor,
     PartyRemove,
+    MDIIconFilter,
     SanityProblemTypeFilter
 ]).component(name, {
     template,

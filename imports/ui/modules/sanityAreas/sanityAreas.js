@@ -6,7 +6,7 @@ export function GetSanityAreas() {
 }
 
 export function GetSanityArea(areaValue) {
-    if (areaValue) {
+    if (areaValue || areaValue == 0) {
         return SanityAreasDetails[areaValue];
     }
 }
@@ -20,7 +20,7 @@ export function GetSanitySubAreas(areaValue) {
 }
 
 export function GetSanitySubArea(areaValue, subAreaValue) {
-    if (areaValue && subAreaValue) {
+    if (areaValue || subAreaValue || areaValue == 0 || subAreaValue == 0) {
         let area = GetSanityArea(areaValue);
 
         return area.subAreas[subAreaValue];

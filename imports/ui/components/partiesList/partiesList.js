@@ -30,13 +30,6 @@ import {
     name as PartyCard
 } from '../partyCard/partyCard';
 
-import {
-    name as MDIIconFilter
-} from '../../filters/mdiIcon/mdiIconFilter';
-import {
-    name as SanityProblemTypeFilter
-} from '../../filters/sanityProblemType/sanityProblemTypeFilter';
-
 /**
  *  PartiesList Component
  */
@@ -103,9 +96,7 @@ export default angular.module(name, [
         PartiesSort,
         PartyAddButton,
         PartyCreator,
-        PartyCard,
-        MDIIconFilter,
-        SanityProblemTypeFilter
+        PartyCard
     ]).component(name, {
         template: partiesListTemplate,
         controllerAs: name,
