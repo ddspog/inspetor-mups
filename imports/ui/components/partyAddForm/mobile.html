@@ -53,6 +53,18 @@
         </div>
     </md-input-container>
 
+    <div flex layout="row">
+        <md-progress-circular flex="10" md-mode="indeterminate" md-diameter="15" ng-if="!partyAddForm.locationFound"></md-progress-circular>
+        <span flex="85" ng-if="!partyAddForm.locationFound">Obtendo geolocalização...</span>
+        <span flex="95" ng-if="partyAddForm.locationFound">{{ 'Posição: (' + partyAddForm.latitude + ', ' + partyAddForm.longitude + ')'}}</span>
+        <md-icon flex="5" class="xs-fsz-24">
+            {{ 'map-marker' | mdiIconFilter}}</md-icon>
+    </div>
+
+    <div flex layout="row" class="error-message">
+        <span flex>{{partyAddForm.error}}</span>
+    </div>
+
     <div flex layout="row" layout-align="center start">
         <md-button flex="50" class="md-raised" ng-click="partyAddForm.submit()">
             Registrar
