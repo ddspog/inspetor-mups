@@ -7,8 +7,6 @@
  * @param  {Function} reject  [description]
  */
 export function upload(dataUrl, name, collection, resolve, reject) {
-  console.log('Uploading image to ' + collection.toString() + '...');
-
   collection.insert({
       filename: name,
       bin: dataUrl

@@ -36,11 +36,7 @@ export class PartyUpload {
 
         self = this;
 
-        console.log('Configuring upload...');
-        console.log('image = ' + this.image);
-
         this.control.configureCallback(this.$bindToContext((error, fileId) => {
-            console.log('Saved image on ImageStore with id = ' + fileId);
             self.file = fileId;
         }));
 

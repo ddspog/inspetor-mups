@@ -31,8 +31,8 @@ export class UploadControl {
     }
 
     notify(e, o, thisObj) {
-        var scope = thisObj || window;
-        var self = this;
+        let scope = thisObj || window;
+        let self = this;
 
         this.listeners.forEach(function (item) {
             item.fn.call(scope, e, o);
@@ -41,7 +41,7 @@ export class UploadControl {
     }
 
     configureCallback(fn) {
-        var self = this;
+        let self = this;
 
         this.callback = function (error, fileId) {
             fn(error, fileId);
@@ -50,7 +50,7 @@ export class UploadControl {
     }
 
     configureError(fn) {
-        var self = this;
+        let self = this;
 
         this.error = function (error, fileId) {
             fn(error, fileId);
@@ -60,8 +60,6 @@ export class UploadControl {
 
     //start upload of files
     start() {
-        console.log('Requesting upload...');
-
         upload(this.source, this.header + new Date(), this.collection, this.callback, this.error);
     }
 }
