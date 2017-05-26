@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Ground } from 'meteor/ground:db';
 
 if (Meteor.isServer) {
   Meteor.publish('users', function() {
@@ -31,4 +32,8 @@ if (Meteor.isServer) {
 
       return user;
   });
+}
+
+if(Meteor.isCordova) {
+    Ground.Collection(Meteor.users);
 }

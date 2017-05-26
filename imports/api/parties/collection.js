@@ -1,7 +1,12 @@
 import { Mongo } from 'meteor/mongo';
+import { Ground } from 'meteor/ground:db';
 
 // Declares parties Collection
 export const Parties = new Mongo.Collection('parties');
+
+if(Meteor.isCordova){
+  Ground.Collection(Parties);
+}
 
 Parties.allow({
   insert(userId, party){

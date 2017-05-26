@@ -1,7 +1,15 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import { Ground } from 'meteor/ground:db';
+
 
 export const Thumbs = new Mongo.Collection('thumbs');
 export const Images = new Mongo.Collection('images');
+
+if(Meteor.isCordova) {
+  Ground.Collection(Thumbs);
+  Ground.Collection(Images);
+}
 
 function loggedIn(userId) {
   return !!userId;

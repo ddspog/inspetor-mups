@@ -4,7 +4,7 @@
   "scripts": {
     "start": "meteor --port=9000 --settings \"private\\settings\\development.json\"",
     "test": "meteor test --driver-package=practicalmeteor:mocha",
-    "android": "meteor run android-device --settings \"private\\settings\\development.json\" --verbose"
+    "android": "meteor run android-device --settings \"private\\settings\\development.json\""
   },
   "dependencies": {
     "angular": "^1.5.8",

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Abastecimento de águas.",
+    "name": "Abastecimento de água.",
     "value": 0,
     "icon": "water-pump",
     "subAreas": [
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "name": "Tratamento de esgoto.",
+    "name": "Esgoto.",
     "value": 1,
     "icon": "emoticon-poop",
     "subAreas": [
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "name": "Escoamento da chuva.",
+    "name": "Drenagem de água de chuva.",
     "value": 2,
     "icon": "weather-pouring",
     "subAreas": [
@@ -96,7 +96,7 @@
     ]
   },
   {
-    "name": "Coleta de lixo.",
+    "name": "Resíduos.",
     "value": 3,
     "icon": "delete",
     "subAreas": [
