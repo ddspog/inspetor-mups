@@ -89,17 +89,16 @@ class PartyAddForm {
             if(!this.party.position){
                 this.setError("A posição não foi ajustada.");
             } else {
+                this.party.owner = Meteor.userId();
+
                 self = this;
 
                 this.uploader.subscribe("add-party-form", this.$bindToContext((error, fileId) => {
                     if(error) {
                         self.setError('Houve um problema durante o upload da foto. Tente de novo.');
                     } else {
-
-                        self.party.image = fileId;
-                        self.party.owner = Meteor.userId();
-
-                        Parties.insert(self.party);
+                        self.setImage(fileId);
+                        self.saveParty();
 
                         if (self.done) {
                             self.done();
@@ -120,10 +119,20 @@ class PartyAddForm {
         })();
     }
 
+    setImage(image) {
+        this.$bindToContext(() => {
+            this.party.image = image;
+        })();
+    }
+
     setError(message) {
         this.$bindToContext(() => {
             this.error = message;
         })();
+    }
+
+    saveParty() {
+        Parties.insert(this.party);
     }
 
     updateSubArea() {

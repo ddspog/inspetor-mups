@@ -32,18 +32,10 @@ class PartyCard {
 
         this.helpers({
             getPicture(){
-                if(this.getReactively('id')) {
-                    if(this.getReactively('hasThumb')) {
-                        return Thumbs.findOne({
-                            originalCollection: 'images',
-                            originalId: this.getReactively('image')
-                        }).bin;
-                    } else {
-                        let picture = Images.findOne({
-                            _id: this.getReactively('image')
-                        });
-                        return picture.bin;
-                    }
+                if(this.getReactively('image')) {
+                    return Images.findOne({
+                        _id: this.getReactively('image')
+                    }).bin;
                 }
             },
 
@@ -75,8 +67,7 @@ export default angular.module(name, [
         id: '<',
         name: '<',
         image: '<',
-        type: '<',
-        hasThumb: '<'
+        type: '<'
     },
     controllerAs: name,
     controller: PartyCard

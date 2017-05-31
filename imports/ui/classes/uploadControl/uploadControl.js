@@ -40,26 +40,18 @@ export class UploadControl {
         });
     }
 
-    configureCallback(fn) {
+    configureCallback() {
         let self = this;
 
         this.callback = function (error, fileId) {
-            fn(error, fileId);
-            self.notify(error, fileId);
-        };
-    }
-
-    configureError(fn) {
-        let self = this;
-
-        this.error = function (error, fileId) {
-            fn(error, fileId);
             self.notify(error, fileId);
         };
     }
 
     //start upload of files
     start() {
-        upload(this.source, this.header + new Date(), this.collection, this.callback, this.error);
+        this.configureCallback();
+
+        upload(this.source, this.header + new Date(), this.collection, this.callback, this.callback);
     }
 }

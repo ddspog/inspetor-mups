@@ -27,7 +27,8 @@ export class Register {
               this.error = err.reason || err;
           } else {
               this.error = '';
-              requestVerification();
+              this.isStepTwo = true;
+              // this.requestVerification();
           }
       }));
   }

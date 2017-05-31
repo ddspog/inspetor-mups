@@ -33,16 +33,6 @@ export class PartyUpload {
             collection: Images,
             header: 'Record Image at '
         });
-
-        self = this;
-
-        this.control.configureCallback(this.$bindToContext((error, fileId) => {
-            self.file = fileId;
-        }));
-
-        this.control.configureError((error, fileId) => {
-            console.log('The upload has encountered an error -> ' + error, error);
-        });
     }
 
     // take a picture using android camera

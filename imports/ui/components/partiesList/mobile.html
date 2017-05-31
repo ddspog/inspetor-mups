@@ -3,12 +3,12 @@
 
     <div flex="100" layout="column" layout-align="center center">
         <md-content flex="85" layout="column" layout-fill>
-            <div flex="grow" dir-paginate="party in partiesList.parties | itemsPerPage: partiesList.perPage"
+            <div ng-if="partiesList.isLoggedIn" flex="grow" dir-paginate="party in partiesList.parties | itemsPerPage: partiesList.perPage"
                         total-items="partiesList.partiesCount" class="lg-layer-front-1">
                 <party-card id="party._id" name="party.name" image="party.image"
-                            type="party.type" has-thumb="party.hasThumb"></party-card>
+                            type="party.type"></party-card>
             </div>
         </md-content>
-        <dir-pagination-controls flex="15" on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+        <dir-pagination-controls ng-if="partiesList.isLoggedIn" flex="15" on-page-change="partiesList.pageChanged(newPageNumber)"></dir-pagination-controls>
     </div>
 </div>
