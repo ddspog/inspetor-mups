@@ -10,12 +10,11 @@ import {
     Meteor
 } from 'meteor/meteor';
 
-import webTemplate from './web.html';
-import mobileTemplate from './mobile.html';
+import partiesListTemplate from './partiesList.html';
 import pageButtonTemplate from './pageButton.html';
 
 import {
-    Parties
+    Parties, PartiesValues
 } from '../../../api/parties/index';
 import {
     name as PartiesSort
@@ -61,7 +60,19 @@ class PartiesList {
                 });
             },
             partiesCount() {
-                return Counts.get('numberOfParties');
+                let n = 0;
+
+                if(navigator.onLine && Meteor.status().connected){
+                    n = Counts.get('numberOfParties');
+                    Meteor.call('numberPartiesUpdate', n);
+                } else {
+                    let profile = Meteor.user().profile;
+                    if(!!profile){
+                       n = profile.numberParties;
+                    }
+                }
+
+                return n;
             },
             isLoggedIn() {
               return !!Meteor.userId();
@@ -86,7 +97,6 @@ class PartiesList {
 }
 
 const name = 'partiesList';
-const partiesListTemplate = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [

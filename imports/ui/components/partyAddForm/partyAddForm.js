@@ -8,8 +8,7 @@ import {
     Tracker
 } from 'meteor/tracker';
 
-import webTemplate from './web.html';
-import mobileTemplate from './mobile.html';
+import template from './partyAddForm.html';
 
 import {
     Parties
@@ -136,7 +135,6 @@ class PartyAddForm {
 }
 
 const name = 'partyAddForm';
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [

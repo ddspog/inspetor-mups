@@ -30,19 +30,18 @@ class PartyCard {
 
         $reactive(this).attach($scope);
 
+        this.updateTries = 0;
+
         this.helpers({
             getPicture(){
-                if(this.getReactively('id')) {
-                    if(this.getReactively('hasThumb')) {
-                        return Thumbs.findOne({
-                            originalCollection: 'images',
-                            originalId: this.getReactively('image')
-                        }).bin;
-                    } else {
-                        let picture = Images.findOne({
-                            _id: this.getReactively('image')
-                        });
+                if(!!this.getReactively('id')) {
+                    let picture = Images.findOne({
+                        _id: this.getReactively('image')
+                    });
+                    if(!!picture) {
                         return picture.bin;
+                    } else {
+                        return '';
                     }
                 }
             },

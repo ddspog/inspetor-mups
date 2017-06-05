@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
-import { Parties } from './collection';
+import { Parties, PartiesValues } from './collection';
 
 if (Meteor.isServer) {
   Meteor.publish('parties', function(options, searchString){
@@ -48,5 +48,5 @@ if (Meteor.isServer) {
     });
 
     return Parties.find(selector, options);
-  })
+  });
 }

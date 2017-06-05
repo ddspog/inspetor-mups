@@ -3,14 +3,10 @@ import angularMeteor from 'angular-meteor';
 import ngMaterial from 'angular-material';
 import ngSanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
-import 'ionic-sdk/release/js/ionic';
-import 'ionic-sdk/release/js/ionic-angular';
-import 'ionic-sdk/release/css/ionic.css';
 
 import { Meteor } from 'meteor/meteor';
 
-import webTemplate from './web.html';
-import mobileTemplate from './mobile.html';
+import template from './socially.html';
 
 import {
     name as PartiesList
@@ -28,7 +24,6 @@ import {
 class Socially {}
 
 const name = 'socially';
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [
@@ -39,9 +34,7 @@ export default angular.module(name, [
         PartiesList,
         PartyDetails,
         Navigation,
-        Auth,
-        'accounts.ui',
-        'ionic'
+        Auth
     ]).component(name, {
         template,
         controllerAs: name,
