@@ -5,8 +5,15 @@ import {
     Meteor
 } from 'meteor/meteor';
 import {
+    Mongo
+} from 'meteor/mongo';
+import {
     Tracker
 } from 'meteor/tracker';
+
+import {
+    Counts
+} from 'meteor/tmeasday:publish-counts';
 
 import template from './partyAddForm.html';
 
@@ -26,7 +33,11 @@ class PartyAddForm {
 
         $reactive(this).attach($scope);
 
+        let newObjID = new Mongo.ObjectID();
+        let newId = newObjID._str;
+
         this.party = {
+            _id: newId,
             type: {
                 area: 0,
                 subArea: 0
@@ -90,25 +101,26 @@ class PartyAddForm {
             } else {
                 self = this;
 
+                this.party.owner = Meteor.userId();
+
+                Parties.insert(this.party);
+
                 this.uploader.subscribe("add-party-form", this.$bindToContext((error, fileId) => {
                     if(error) {
                         self.setError('Houve um problema durante o upload da foto. Tente de novo.');
-                    } else {
-
-                        self.party.image = fileId;
-                        self.party.owner = Meteor.userId();
-
-                        Parties.insert(self.party);
-
-                        if (self.done) {
-                            self.done();
-                        }
-
-                        self.reset();
+                        Parties.remove({
+                            _id: self.party._id
+                        });
                     }
                 }));
 
                 this.uploader.start();
+
+                if (this.done) {
+                    this.done();
+                }
+
+                this.reset();
             }
         }
     }

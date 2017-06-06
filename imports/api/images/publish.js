@@ -5,10 +5,4 @@ if (Meteor.isServer) {
     Meteor.publish('images', function() {
         return Images.find({});
     });
-
-    Meteor.publish('thumbs', function() {
-        return Thumbs.find({
-          originalCollection: 'images'
-        });
-    });
 }

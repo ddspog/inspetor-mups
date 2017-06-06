@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
-import { Parties, PartiesValues } from './collection';
+import { Parties } from './collection';
 
 if (Meteor.isServer) {
   Meteor.publish('parties', function(options, searchString){

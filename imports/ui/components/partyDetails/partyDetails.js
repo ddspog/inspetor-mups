@@ -10,9 +10,6 @@ import template from './partyDetails.html';
 import {
     Parties
 } from '../../../api/parties/index';
-import {
-    name as PartyUninvited
-} from '../partyUninvited/partyUninvited';
 
 import {
     AfterCallLog
@@ -74,8 +71,7 @@ const name = 'partyDetails';
 // Create a module
 export default angular.module(name, [
         angularMeteor,
-        uiRouter,
-        PartyUninvited
+        uiRouter
     ]).component(name, {
         template,
         controllerAs: name,

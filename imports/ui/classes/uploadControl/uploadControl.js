@@ -6,6 +6,7 @@ export class UploadControl {
     constructor(config) {
         'ngInject';
 
+        this.party = config.party;
         this.source = config.source;
         this.collection = config.collection;
         this.header = config.header;
@@ -60,6 +61,6 @@ export class UploadControl {
 
     //start upload of files
     start() {
-        upload(this.source, this.header + new Date(), this.collection, this.callback, this.error);
+        upload(this.source, this.party, this.header + new Date(), this.collection, this.callback, this.error);
     }
 }

@@ -10,7 +10,7 @@ import {
 } from 'meteor/email';
 
 import {
-    Parties, PartiesValues
+    Parties
 } from './collection';
 
 function getContactEmail(user) {
@@ -147,18 +147,7 @@ export function rsvp(partyId, rsvp) {
     }
 }
 
-export function numberPartiesUpdate(number){
-    Meteor.users.update({
-        _id: Meteor.userId()
-    }, {
-        $set: {
-            "profile.numberParties": number
-        }
-    });
-}
-
 Meteor.methods({
     invite,
-    rsvp,
-    numberPartiesUpdate
+    rsvp
 });

@@ -36,7 +36,7 @@ class PartyCard {
             getPicture(){
                 if(!!this.getReactively('id')) {
                     let picture = Images.findOne({
-                        _id: this.getReactively('image')
+                        party: this.getReactively('id')
                     });
                     if(!!picture) {
                         return picture.bin;

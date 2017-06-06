@@ -14,11 +14,8 @@ import partiesListTemplate from './partiesList.html';
 import pageButtonTemplate from './pageButton.html';
 
 import {
-    Parties, PartiesValues
+    Parties
 } from '../../../api/parties/index';
-import {
-    name as PartiesSort
-} from '../partiesSort/partiesSort';
 import {
     name as PartyAddButton
 } from '../partyAddButton/partyAddButton';
@@ -45,18 +42,23 @@ class PartiesList {
         };
         this.searchString = '';
 
-        this.subscribe('parties', () => [{
-            limit: parseInt(this.perPage),
-            skip: parseInt((this.getReactively('page') - 1) * this.perPage),
-            sort: this.getReactively('sort')
-        }, this.getReactively('searchText')]);
-
+        this.subscribe('parties', () => [{}, this.getReactively('searchText')]);
         this.subscribe('users');
 
         this.helpers({
             parties() {
-                return Parties.find({}, {
+                let cursor = Parties.find({}, {
                     sort: this.getReactively('sort')
+                });
+
+                this.setPartiesNumber(cursor.count());
+
+                let array = cursor.fetch();
+                let skip = parseInt((this.getReactively('page') - 1) * this.perPage);
+                let perPage = parseInt(this.perPage);
+
+                return array.filter((doc, index) => {
+                    return index >= skip && index < skip + perPage;
                 });
             },
             partiesCount() {
@@ -64,11 +66,10 @@ class PartiesList {
 
                 if(navigator.onLine && Meteor.status().connected){
                     n = Counts.get('numberOfParties');
-                    Meteor.call('numberPartiesUpdate', n);
                 } else {
-                    let profile = Meteor.user().profile;
-                    if(!!profile){
-                       n = profile.numberParties;
+                    let number = this.getReactively('partiesNumber');
+                    if(!!number){
+                        n = number;
                     }
                 }
 
@@ -94,6 +95,12 @@ class PartiesList {
     sortChanged(sort) {
         this.sort = sort;
     }
+
+    setPartiesNumber(number) {
+        this.$bindToContext(() => {
+            this.partiesNumber = number;
+        })();
+    }
 }
 
 const name = 'partiesList';
@@ -103,7 +110,6 @@ export default angular.module(name, [
         angularMeteor,
         uiRouter,
         utilsPagination,
-        PartiesSort,
         PartyAddButton,
         PartyCreator,
         PartyCard

@@ -6,10 +6,11 @@
  * @param  {Function} resolve [description]
  * @param  {Function} reject  [description]
  */
-export function upload(dataUrl, name, collection, resolve, reject) {
+export function upload(dataUrl, partyId, name, collection, resolve, reject) {
   collection.insert({
       filename: name,
-      bin: dataUrl
+      bin: dataUrl,
+      party: partyId
   }, function (error, result) {
       if(error){
           reject(error, result);
