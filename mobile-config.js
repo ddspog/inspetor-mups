@@ -5,6 +5,7 @@ App.info({
     email: 'ddspog@gmail.com'
 });
 
+App.accessRule('*://localhost:*/*');
 App.accessRule('*://tsu.herokuapp.com/*');
 App.accessRule('*://ajax.googleapis.com/*');
 App.accessRule('*://fonts.googleapis.com/*');

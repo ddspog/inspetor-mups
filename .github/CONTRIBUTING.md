@@ -88,21 +88,10 @@ Make pagination a very simple task!
  * [**Material Design Icons**](https://github.com/dapearce/meteor-material-icons) -
  Icons from Google and from the Community to decorate your site,
  maintaining Material Design.
- * [**UploadFS**](https://github.com/jalik/jalik-ufs) - Make the file
- uploading process very easy in your app, with this package in
- integration with MongoDB.
- * [**gm**](https://github.com/aheckmann/gm) - Operations with images,
- necessary for automatically compacting the user files.
  * [**ng-file-upload**](https://github.com/danialfarid/ng-file-upload) -
  Easy directive to upload files, even with Drag and Drop operations.
  * [**ng-img-crop**](https://github.com/alexk111/ngImgCrop/) - Enable
  users to crop the images they have and update it on your site.
- * [**angular-sortable-view**](https://github.com/kamilkp/angular-sortable-view) -
- Make sorting elements easy, with this declarative directive.
- * [**Slingshot**](https://github.com/CulturalMe/meteor-slingshot/) -
- Secure your files on any cloud you want.
- * [**Ionic**](http://ionicframework.com/) - Mobile Framework for
- easy mobile UI development.
 
 Further details on how to use this seed are available on the
 [Wiki](https://github.com/ddspog/tsu/wiki).
