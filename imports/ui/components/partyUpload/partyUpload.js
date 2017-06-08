@@ -1,9 +1,5 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import ngFileUpload from 'ng-file-upload';
-import 'angular-sortable-view';
-import 'ng-img-crop/compile/minified/ng-img-crop';
-import 'ng-img-crop/compile/minified/ng-img-crop.css';
 
 import template from './partyUpload.html';
 
@@ -79,10 +75,7 @@ const name = 'partyUpload';
 
 // create a module
 export default angular.module(name, [
-    angularMeteor,
-    ngFileUpload,
-    'ngImgCrop',
-    'angular-sortable-view'
+    angularMeteor
 ]).component(name, {
     template,
     controller: PartyUpload,

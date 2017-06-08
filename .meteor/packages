@@ -23,7 +23,6 @@ email@1.2.1
 less@2.7.9
 dapearce:material-icons
 service-configuration@1.0.11
-angular:angular-material
 practicalmeteor:sinon
 practicalmeteor:chai
 practicalmeteor:mocha
@@ -32,7 +31,6 @@ sanjo:jasmine
 velocity:html-reporter
 velocity:console-reporter
 shell-server@0.2.3
-wormy:angularjs-google-maps
 mys:accounts-phone
 mdg:camera
 mdg:geolocation
