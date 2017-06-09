@@ -1,22 +1,22 @@
 <div layout="column">
-    <div ng-click="partyUpload.takePicture()"
+    <div ng-click="recordUpload.takePicture()"
          class="drop-box xs-dimw-240 xs-dimh-180"
-         ng-hide="partyUpload.image">
+         ng-hide="recordUpload.image">
         <md-icon class="xs-fsz-24 xs-ha-cen">
             {{ 'camera' | mdiIconFilter }}</md-icon>
     </div>
-    <div ng-show="partyUpload.image" layout="column">
+    <div ng-show="recordUpload.image" layout="column">
         <div flex layout="row" layout-align="center start"
              class="limit-img-to-container xs-ha-cen xs-dimw-240 xs-dimh-180">
-            <img src="{{partyUpload.image}}"/>
+            <img src="{{recordUpload.image}}"/>
         </div>
         <div flex layout="row" layout-align="center start">
-            <div flex="40">
-                <md-button ng-click="partyUpload.takePicture()">
+            <md-button ng-click="recordUpload.takePicture()">
+                <span flex="40">
                     <md-icon class="xs-fsz-24 xs-ha-cen">
-                        {{ 'camera-party-mode' | mdiIconFilter }}</md-icon>
-                </md-button>
-            </div>
+                        {{ 'camera-record-mode' | mdiIconFilter }}</md-icon>
+                </span>
+            </md-button>
         </div>
     </div>
 </div>

@@ -10,7 +10,7 @@ import {
 } from 'meteor/email';
 
 import {
-    Parties
+    Records
 } from './collection';
 
 function getContactEmail(user) {
@@ -28,26 +28,26 @@ function getContactEmail(user) {
 }
 
 // Remember this refers to Meteor, eg: this.userId == Meteor.userId()
-export function invite(partyId, userId) {
-    check(partyId, String);
+export function invite(recordId, userId) {
+    check(recordId, String);
     check(userId, String);
 
     if (!this.userId) {
-        throw new Meteor.Error(400, 'You have to be logged in!');
+        throw new Meteor.Error(400, 'Você deve estar logado!');
     }
 
-    const party = Parties.findOne(partyId);
+    const record = Records.findOne(recordId);
 
-    if (!party || party.owner !== this.userId) {
-        throw new Meteor.Error(404, 'No permissions!');
+    if (!record || record.owner !== this.userId) {
+        throw new Meteor.Error(404, 'Sem permissão!');
     }
 
-    if (party.public) {
-        throw new Meteor.Error(400, 'That party is public. No need to invite people.');
+    if (record.public) {
+        throw new Meteor.Error(400, 'Este registro é público. Não há necessidade de convidar ninguém.');
     }
 
-    if (userId !== party.owner && !_.contains(party.invited, userId)) {
-        Parties.update(partyId, {
+    if (userId !== record.owner && !_.contains(record.invited, userId)) {
+        Records.update(recordId, {
             $addToSet: {
                 invited: userId
             }
@@ -61,9 +61,9 @@ export function invite(partyId, userId) {
                 to,
                 replyTo,
                 from: 'noreply@socially.com',
-                subject: `PARTY: ${party.name}`,
+                subject: `PARTY: ${record.name}`,
                 text: `
-          Hey, I just invited you to ${party.name} on Socially.
+          Hey, I just invited you to ${record.name} on Socially.
           Come check it out: ${Meteor.absoluteUrl()}
                       `
             });
@@ -71,83 +71,6 @@ export function invite(partyId, userId) {
     }
 }
 
-export function rsvp(partyId, rsvp) {
-    check(partyId, String);
-    check(rsvp, String);
-
-    if (!this.userId) {
-        throw new Meteor.Error(403, 'You must be logged in to RSVP');
-    }
-
-    if (!_.contains(['yes', 'no', 'maybe'], rsvp)) {
-        throw new Meteor.Error(400, 'Invalid RSVP');
-    }
-
-    const party = Parties.findOne({
-        _id: partyId,
-        $or: [{
-            // is public
-            $and: [{
-                public: true
-            }, {
-                public: {
-                    $exists: true
-                }
-            }]
-        }, {
-            // is owner
-            $and: [{
-                owner: this.userId
-            }, {
-                owner: {
-                    $exists: true
-                }
-            }]
-        }, {
-            // is invited
-            $and: [{
-                invited: this.userId
-            }, {
-                invited: {
-                    $exists: true
-                }
-            }]
-        }]
-    });
-
-    if (!party) {
-        throw new Meteor.Error(404, 'No such party');
-    }
-
-    const hasUserRsvp = _.findWhere(party.rsvps, {
-        user: this.userId
-    });
-
-    if (!hasUserRsvp) {
-        // add new rsvp entry
-        Parties.update(partyId, {
-            $push: {
-                rsvps: {
-                    rsvp,
-                    user: this.userId
-                }
-            }
-        });
-    } else {
-        // update rsvp entry
-        const userId = this.userId;
-        Parties.update({
-            _id: partyId,
-            'rsvps.user': userId
-        }, {
-            $set: {
-                'rsvps.$.rsvp': rsvp
-            }
-        });
-    }
-}
-
 Meteor.methods({
-    invite,
-    rsvp
+    invite
 });

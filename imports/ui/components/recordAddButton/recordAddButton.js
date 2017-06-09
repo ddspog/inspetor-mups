@@ -1,18 +1,18 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import buttonTemplate from './partyAddButton.html';
-import modalTemplate from './partyAddModal.html';
+import buttonTemplate from './recordAddButton.html';
+import modalTemplate from './recordAddModal.html';
 
 import {
     name as MDIIconFilter
 } from '../../filters/mdiIcon/mdiIconFilter';
 
 import {
-    name as PartyAddForm
-} from '../partyAddForm/partyAddForm';
+    name as RecordAddForm
+} from '../recordAddForm/recordAddForm';
 
-class PartyAddButton {
+class RecordAddButton {
     constructor($mdDialog, $mdMedia) {
         'ngInject';
 
@@ -29,7 +29,7 @@ class PartyAddButton {
                     $mdDialog.hide();
                 }
             },
-            controllerAs: 'partyAddModal',
+            controllerAs: 'recordAddModal',
             template: modalTemplate,
             targetEvent: event,
             parent: angular.element(document.body),
@@ -40,19 +40,19 @@ class PartyAddButton {
                 this.$mdMedia('xs')
         }).finally(function(){
             // Called on Exit of Modal, clicking on 'Close' or outside modal.
-            // console.log('PartyAddModal has called ClickOutsideToClose');
+            // console.log('RecordAddModal has called ClickOutsideToClose');
         });
     }
 }
 
-const name = 'partyAddButton';
+const name = 'recordAddButton';
 
 // create a module
 export default angular.module(name, [
     angularMeteor,
-    PartyAddForm
+    RecordAddForm
 ]).component(name, {
     template: buttonTemplate,
     controllerAs: name,
-    controller: PartyAddButton
+    controller: RecordAddButton
 });

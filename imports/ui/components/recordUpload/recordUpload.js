@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import template from './partyUpload.html';
+import template from './recordUpload.html';
 
 import {Images} from '../../../api/images';
 
@@ -9,7 +9,7 @@ import {RotateCounterClockwise} from '../../modules/rotate/rotate';
 
 import {UploadControl} from '../../classes/uploadControl/uploadControl';
 
-class PartyUpload {
+class RecordUpload {
     constructor($scope, $reactive) {
         'ngInject';
 
@@ -32,7 +32,7 @@ class PartyUpload {
         })();
 
         this.control = new UploadControl({
-            party: this.party,
+            record: this.record,
             source: data,
             collection: Images,
             header: 'Record Image at '
@@ -71,17 +71,17 @@ class PartyUpload {
 }
 
 
-const name = 'partyUpload';
+const name = 'recordUpload';
 
 // create a module
 export default angular.module(name, [
     angularMeteor
 ]).component(name, {
     template,
-    controller: PartyUpload,
+    controller: RecordUpload,
     controllerAs: name,
     bindings: {
-        party: '<',
+        record: '<',
         control: '=?'
     }
 });

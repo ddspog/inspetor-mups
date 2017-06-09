@@ -50,7 +50,7 @@ class Auth {
     }
 
     logout(callback) {
-        Accounts.logout(AfterLogInout(this, 'parties', callback));
+        Accounts.logout(AfterLogInout(this, 'records', callback));
     }
 }
 

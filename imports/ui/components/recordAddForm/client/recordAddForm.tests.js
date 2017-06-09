@@ -6,10 +6,10 @@ import {
 } from 'meteor/accounts-base';
 
 import {
-    name as PartyAddForm
-} from '../partyAddForm';
+    name as RecordAddForm
+} from '../recordAddForm';
 import {
-    Parties
+    Records
 } from '../../../../api/records';
 
 import {
@@ -32,7 +32,7 @@ import {
 
 should();
 
-describe('PartyAddForm', function() {
+describe('RecordAddForm', function() {
     let fakeUser = {
         username: 'tyrion_lanister',
         password: 'IDONTCARE',
@@ -44,7 +44,7 @@ describe('PartyAddForm', function() {
     stubs.restoreAll();
     // Initialize module
     beforeEach(function(done) {
-        window.module(PartyAddForm);
+        window.module(RecordAddForm);
 
         EnsuresUserCreation(fakeUser, done);
     });
@@ -53,7 +53,7 @@ describe('PartyAddForm', function() {
     describe('controller', function() {
         let controller;
 
-        const party = {
+        const record = {
             name: 'Foo',
             description: 'Birthday of Foo',
             public: true
@@ -62,7 +62,7 @@ describe('PartyAddForm', function() {
 
         // Initialize controller
         beforeEach(function(done) {
-            LoadController(PartyAddForm, function(component) {
+            LoadController(RecordAddForm, function(component) {
                 controller = component;
             }, done, {
                 done: doneCallback
@@ -75,11 +75,11 @@ describe('PartyAddForm', function() {
         });
 
         describe('reset()', function() {
-            it('should clean up party object', function(done) {
-                controller.party = party;
+            it('should clean up record object', function(done) {
+                controller.record = record;
                 controller.reset();
 
-                expect(controller.party).to.be.deep.equal({});
+                expect(controller.record).to.be.deep.equal({});
                 done();
             });
         });
@@ -87,10 +87,10 @@ describe('PartyAddForm', function() {
         describe('submit()', function() {
             // Monitors insert, reset on submit calls
             beforeEach(function(done) {
-                spies.create('insert', Parties, 'insert');
+                spies.create('insert', Records, 'insert');
                 spies.create('reset', controller, 'reset');
 
-                controller.party = party;
+                controller.record = record;
 
                 EnsuresLogin(fakeUser, function(err) {
                     controller.submit();
@@ -108,12 +108,12 @@ describe('PartyAddForm', function() {
                 done();
             });
 
-            it('should insert a new party', function(done) {
+            it('should insert a new record', function(done) {
                 expect(Meteor.userId()).to.not.equal(null);
                 expect(spies.insert).to.have.been.calledWith({
-                    name: party.name,
-                    description: party.description,
-                    public: party.public,
+                    name: record.name,
+                    description: record.description,
+                    public: record.public,
                     owner: Meteor.userId()
                 });
                 done();

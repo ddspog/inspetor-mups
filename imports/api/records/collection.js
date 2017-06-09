@@ -1,21 +1,21 @@
 import { Mongo } from 'meteor/mongo';
 import { Ground } from 'meteor/ground:db';
 
-// Declares parties Collection
-export const Parties = new Mongo.Collection('parties');
+// Declares records Collection
+export const Records = new Mongo.Collection('records');
 
 if(Meteor.isCordova){
-  Ground.Collection(Parties);
+  Ground.Collection(Records);
 }
 
-Parties.allow({
-  insert(userId, party){
-    return userId && party.owner === userId;
+Records.allow({
+  insert(userId, record){
+    return userId && record.owner === userId;
   },
-  update(userId, party, fields, modifier) {
-    return userId && party.owner === userId;
+  update(userId, record, fields, modifier) {
+    return userId && record.owner === userId;
   },
-  remove(userId, party){
-    return userId && party.owner === userId;
+  remove(userId, record){
+    return userId && record.owner === userId;
   }
 });

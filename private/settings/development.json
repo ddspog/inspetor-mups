@@ -1,28 +1,4 @@
 {
-    "api": {
-        "google": {
-            "browser": {
-                "key": "AIzaSyCDox7QXJY6ksTLXmIxscZZZyJ4A4FfD2U",
-                "v": "3.24",
-                "libraries": "weather,geometry,visualization"
-            }
-        },
-        "filestack": {
-            "key": "A9vY2uCZ7TrOoHOsesrl5z"
-        }
-    },
-    "oAuth": {
-        "facebook": {
-            "appId": "253543055003901",
-            "loginStyle": "popup",
-            "secret": "c504605daa1f559f3e0d7e88f35d202e"
-        },
-        "google": {
-            "clientId": "108407672352-p0n1ftu7rsk5gtjgdc2ldunjns0nb91i.apps.googleusercontent.com",
-            "loginStyle": "popup",
-            "secret": "J18ulHJDcxQl5fCPaiEbl2IW"
-        }
-    },
     "mailUrl": {
         "email": "festeje.app@gmail.com",
         "password": "ddsfestejeNOW"

@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import template from './partyRemove.html';
+import template from './recordRemove.html';
 
 import {
     name as MDIIconFilter
@@ -11,15 +11,15 @@ import {
     Records
 } from '../../../api/records/index';
 
-class PartyRemove {
+class RecordRemove {
     remove() {
-        if (this.party) {
-            Records.remove(this.party._id);
+        if (this.record) {
+            Records.remove(this.record._id);
         }
     }
 }
 
-const name = 'partyRemove';
+const name = 'recordRemove';
 
 // Create a module
 export default angular.module(name, [
@@ -27,8 +27,8 @@ export default angular.module(name, [
 ]).component(name, {
     template,
     bindings: {
-        party: '<'
+        record: '<'
     },
     controllerAs: name,
-    controller: PartyRemove
+    controller: RecordRemove
 })

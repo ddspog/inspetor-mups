@@ -1,6 +1,6 @@
 import {
-    name as PartyCreator
-} from '../partyCreator';
+    name as RecordCreator
+} from '../recordCreator';
 import {
     Meteor
 } from 'meteor/meteor';
@@ -21,28 +21,28 @@ import {
 
 should();
 
-describe('PartyCreator', function() {
+describe('RecordCreator', function() {
     beforeEach(function(done) {
-        window.module(PartyCreator);
+        window.module(RecordCreator);
         stubs.restoreAll();
         done();
     });
 
     describe('controller', function() {
         let component;
-        const party = {
-            _id: 'partyId'
+        const record = {
+            _id: 'recordId'
         };
 
         beforeEach(function(done) {
-            LoadCaller(PartyCreator, function(caller) {
+            LoadCaller(RecordCreator, function(caller) {
                 component = caller;
             }, done);
         });
 
-        it('should return an empty string if there is no party', function(done) {
+        it('should return an empty string if there is no record', function(done) {
             const controller = component({
-                party: undefined
+                record: undefined
             });
 
             expect(controller.creator).to.be.equal('');
@@ -55,7 +55,7 @@ describe('PartyCreator', function() {
             stubs.create('userId', Meteor, 'userId').returns(owner);
 
             const controller = component({
-                party: {
+                record: {
                     owner
                 }
             });
@@ -74,7 +74,7 @@ describe('PartyCreator', function() {
             stubs.create('findOne', Meteor.users, 'findOne').returns(undefined);
 
             const controller = component({
-                party: {
+                record: {
                     owner
                 }
             });
@@ -94,7 +94,7 @@ describe('PartyCreator', function() {
             stubs.create('findOne', Meteor.users, 'findOne').returns('found');
 
             const controller = component({
-                party: {
+                record: {
                     owner
                 }
             });

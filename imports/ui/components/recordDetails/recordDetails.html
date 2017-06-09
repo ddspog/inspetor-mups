@@ -5,24 +5,24 @@
             <div flex="60" layout="row">
                 <div flex="40">
                     <md-input-container>
-                        <label>Party Name</label>
-                        <input ng-model="partyDetails.party.name" ng-disabled="!partyDetails.isLoggedIn">
+                        <label>Record Name</label>
+                        <input ng-model="recordDetails.record.name" ng-disabled="!recordDetails.isLoggedIn">
                     </md-input-container>
                     <div>
-                        <md-checkbox ng-model="partyDetails.party.public" ng-disabled="!partyDetails.isLoggedIn">
-                            Public Party?
+                        <md-checkbox ng-model="recordDetails.record.public" ng-disabled="!recordDetails.isLoggedIn">
+                            Public Record?
                         </md-checkbox>
                     </div>
 
                     <div>
-                        <md-button ng-click="partyDetails.save()" class="md-primary md-raised">
+                        <md-button ng-click="recordDetails.save()" class="md-primary md-raised">
                             Save
                         </md-button>
                     </div>
                 </div>
                 <md-input-container flex="55">
                     <label>Description</label>
-                    <textarea type="text" md-maxlength="150" rows="4" ng-model="partyDetails.party.description" ng-disabled="!partyDetails.isLoggedIn"></textarea>
+                    <textarea type="text" md-maxlength="150" rows="4" ng-model="recordDetails.record.description" ng-disabled="!recordDetails.isLoggedIn"></textarea>
                 </md-input-container>
                 <div flex="5"></div>
             </div>

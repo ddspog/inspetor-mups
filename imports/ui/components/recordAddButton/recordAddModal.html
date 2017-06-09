@@ -3,14 +3,14 @@
         <div class="md-toolbar-tools">
             <h2 class="md-accent">Novo Registro</h2>
             <span flex></span>
-            <md-button ng-click="partyAddModal.close()">
-                Cancelar
+            <md-button ng-click="recordAddModal.close()">
+                <span flex>Cancelar</span>
             </md-button>
         </div>
     </md-toolbar>
     <md-dialog-content>
         <div class="md-dialog-content">
-            <party-add-form done="partyAddModal.close()"></party-add-form>
+            <record-add-form done="recordAddModal.close()"></record-add-form>
         </div>
     </md-dialog-content>
 </md-dialog>

@@ -1,9 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import template from './partiesSort.html';
+import template from './recordsSort.html';
 
-class PartiesSort {
+class RecordsSort {
     constructor() {
         this.changed();
 
@@ -22,7 +22,7 @@ class PartiesSort {
     }
 }
 
-const name = 'partiesSort';
+const name = 'recordsSort';
 
 // Create a module
 export default angular.module(name, [
@@ -35,5 +35,5 @@ export default angular.module(name, [
         order: '@'
     },
     controllerAs: name,
-    controller: PartiesSort
+    controller: RecordsSort
 });

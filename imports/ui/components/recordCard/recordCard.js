@@ -1,14 +1,14 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import template from './partyCard.html';
+import template from './recordCard.html';
 
 import {
     Images, Thumbs
 } from '../../../api/images/index';
 import {
-    name as PartyRemove
-} from '../partyRemove/partyRemove';
+    name as RecordRemove
+} from '../recordRemove/recordRemove';
 
 import {
     name as MDIIconFilter
@@ -21,9 +21,9 @@ import {
 } from '../../modules/sanityAreas/sanityAreas';
 
 /**
- *  PartyCard Component
+ *  RecordCard Component
  */
-class PartyCard {
+class RecordCard {
 
     constructor($scope, $reactive) {
         'ngInject';
@@ -36,7 +36,7 @@ class PartyCard {
             getPicture(){
                 if(!!this.getReactively('id')) {
                     let picture = Images.findOne({
-                        party: this.getReactively('id')
+                        record: this.getReactively('id')
                     });
                     if(!!picture) {
                         return picture.bin;
@@ -60,12 +60,12 @@ class PartyCard {
     }
 }
 
-const name = 'partyCard';
+const name = 'recordCard';
 
 // Create a module
 export default angular.module(name, [
     angularMeteor,
-    PartyRemove,
+    RecordRemove,
     MDIIconFilter,
     SanityProblemTypeFilter
 ]).component(name, {
@@ -78,6 +78,6 @@ export default angular.module(name, [
         hasThumb: '<'
     },
     controllerAs: name,
-    controller: PartyCard
+    controller: RecordCard
 });
 

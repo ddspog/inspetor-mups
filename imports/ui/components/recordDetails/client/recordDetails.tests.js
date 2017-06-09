@@ -1,8 +1,8 @@
 import {
-    name as PartyDetails
-} from '../partyDetails';
+    name as RecordDetails
+} from '../recordDetails';
 import {
-    Parties
+    Records
 } from '../../../../api/records';
 
 import 'angular-mocks';
@@ -21,24 +21,24 @@ import {
 
 should();
 
-describe('PartyDetails', function() {
+describe('RecordDetails', function() {
     beforeEach(function(done) {
-        window.module(PartyDetails);
+        window.module(RecordDetails);
         spies.restoreAll();
         done();
     });
 
     describe('controller', function() {
         let controller;
-        const party = {
-            _id: 'partyId',
+        const record = {
+            _id: 'recordId',
             name: 'Foo',
             description: 'Birthday of Foo',
             public: true
         };
 
         beforeEach(function(done) {
-            LoadController(PartyDetails, function(component) {
+            LoadController(RecordDetails, function(component) {
                 controller = component;
             }, done);
         });
@@ -47,16 +47,16 @@ describe('PartyDetails', function() {
             beforeEach(function(done) {
                 if (spies.update)
                     spies.update.restore();
-                spies.create('update', Parties, 'update');
+                spies.create('update', Records, 'update');
 
-                controller.party = party;
+                controller.record = record;
                 controller.save();
                 done();
             });
 
-            it('should update a proper party', function(done) {
+            it('should update a proper record', function(done) {
                 expect(spies.update.lastCall.args[0]).to.be.deep.equal({
-                    _id: party._id
+                    _id: record._id
                 });
                 done();
             });
@@ -64,10 +64,10 @@ describe('PartyDetails', function() {
             it('should update with proper modifier', function(done) {
                 expect(spies.update.lastCall.args[1]).to.be.deep.equal({
                     $set: {
-                        name: party.name,
-                        description: party.description,
-                        public: party.public,
-                        location: party.location
+                        name: record.name,
+                        description: record.description,
+                        public: record.public,
+                        location: record.location
                     }
                 });
                 done();

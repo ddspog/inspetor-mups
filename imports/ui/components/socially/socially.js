@@ -9,11 +9,11 @@ import { Meteor } from 'meteor/meteor';
 import template from './socially.html';
 
 import {
-    name as PartiesList
-} from '../partiesList/partiesList';
+    name as RecordsList
+} from '../recordsList/recordsList';
 import {
-    name as PartyDetails
-} from '../partyDetails/partyDetails';
+    name as RecordDetails
+} from '../recordDetails/recordDetails';
 import {
     name as Navigation
 } from '../navigation/navigation';
@@ -31,8 +31,8 @@ export default angular.module(name, [
         ngMaterial,
         ngSanitize,
         uiRouter,
-        PartiesList,
-        PartyDetails,
+        RecordsList,
+        RecordDetails,
         Navigation,
         Auth
     ]).component(name, {
@@ -48,35 +48,22 @@ function config($locationProvider, $urlRouterProvider, $mdIconProvider, $mdThemi
 
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/parties');
+    $urlRouterProvider.otherwise('/records');
 
     const googleIconPath = '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
 
     $mdIconProvider
         .defaultFontSet('mdi');
 
-    if (Meteor.isCordova) {
-        $mdThemingProvider.theme('default')
-            .primaryPalette('blue', {
-              'default': '700',
-              'hue-1': '500',
-              'hue-2': '100'
-            })
-            .accentPalette('amber', {
-              'default': 'A200'
-            });
-    } else {
-        $mdThemingProvider.theme('default')
-            .primaryPalette('deep-orange', {
-              'default': '700',
-              'hue-1': '500',
-              'hue-2': '100'
-            })
-            .warnPalette('blue')
-            .accentPalette('red', {
-              'default': 'A200'
-            });
-    }
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue', {
+            'default': '700',
+            'hue-1': '500',
+            'hue-2': '100'
+        })
+        .accentPalette('amber', {
+            'default': 'A200'
+        });
 }
 
 function run($rootScope, $state) {
@@ -85,7 +72,7 @@ function run($rootScope, $state) {
     $rootScope.$on('$stateChangeError',
         (event, toState, toParams, fromState, fromParams, error) => {
             if (error === 'AUTH_REQUIRED') {
-                $state.go('parties');
+                $state.go('records');
             }
         });
 }

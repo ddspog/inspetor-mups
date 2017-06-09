@@ -1,8 +1,8 @@
 import {
-    name as PartyRemove
-} from '../partyRemove';
+    name as RecordRemove
+} from '../recordRemove';
 import {
-    Parties
+    Records
 } from '../../../../api/records';
 
 import 'angular-mocks';
@@ -15,10 +15,10 @@ import {
     sinon
 } from 'meteor/practicalmeteor:sinon';
 
-describe('PartyRemove', function() {
+describe('RecordRemove', function() {
     // Initialize module
     beforeEach(function(done) {
-        window.module(PartyRemove);
+        window.module(RecordRemove);
         spies.restoreAll();
         done();
     });
@@ -26,16 +26,16 @@ describe('PartyRemove', function() {
     // Test inside controller
     describe('controller', function() {
         let controller;
-        const party = {
-            _id: 'partyId'
+        const record = {
+            _id: 'recordId'
         };
 
         // Initialize controller
         beforeEach(function(done) {
-            LoadController(PartyRemove, function(component) {
+            LoadController(RecordRemove, function(component) {
                 controller = component;
             }, done, {
-                party
+                record
             });
         });
 
@@ -45,13 +45,13 @@ describe('PartyRemove', function() {
                 if (spies.remove)
                     spies.remove.restore();
 
-                spies.create('remove', Parties, 'remove');
+                spies.create('remove', Records, 'remove');
                 controller.remove();
                 done();
             });
 
-            it('should remove a party', function(done) {
-                expect(spies.remove).to.have.been.calledWith(party._id);
+            it('should remove a record', function(done) {
+                expect(spies.remove).to.have.been.calledWith(record._id);
                 done();
             });
         });

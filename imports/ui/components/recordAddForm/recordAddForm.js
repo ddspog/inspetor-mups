@@ -15,19 +15,19 @@ import {
     Counts
 } from 'meteor/tmeasday:publish-counts';
 
-import template from './partyAddForm.html';
+import template from './recordAddForm.html';
 
 import {
     Records
 } from '../../../api/records/index';
-import { name as PartyUpload
-} from '../partyUpload/partyUpload';
+import { name as RecordUpload
+} from '../recordUpload/recordUpload';
 
 import {
     GetSanityAreas
 } from '../../modules/sanityAreas/sanityAreas';
 
-class PartyAddForm {
+class RecordAddForm {
     constructor($scope, $reactive) {
         'ngInject';
 
@@ -36,7 +36,7 @@ class PartyAddForm {
         let newObjID = new Mongo.ObjectID();
         let newId = newObjID._str;
 
-        this.party = {
+        this.record = {
             _id: newId,
             type: {
                 area: 0,
@@ -48,7 +48,7 @@ class PartyAddForm {
 
         this.helpers({
            subAreaList() {
-               let index_area = this.getReactively('party.type.area');
+               let index_area = this.getReactively('record.type.area');
 
                if(index_area !== null && index_area > -1 && index_area < 5) {
                    let area = this.areas[index_area];
@@ -58,8 +58,8 @@ class PartyAddForm {
                }
            },
            subAreaDescription() {
-               let index_area = this.getReactively('party.type.area');
-               let index_subArea = this.getReactively('party.type.subArea');
+               let index_area = this.getReactively('record.type.area');
+               let index_subArea = this.getReactively('record.type.subArea');
 
                if(index_subArea){
                    let area = this.areas[index_area];
@@ -71,13 +71,13 @@ class PartyAddForm {
                }
            },
            locationFound() {
-               return !!this.getReactively('party.position');
+               return !!this.getReactively('record.position');
            },
            latitude() {
-               return this.getReactively('party.position.lat');
+               return this.getReactively('record.position.lat');
            },
            longitude() {
-                return this.getReactively('party.position.lng');
+                return this.getReactively('record.position.lng');
            }
         });
 
@@ -96,20 +96,20 @@ class PartyAddForm {
         if (!this.uploader) {
             this.setError("A foto não foi configurada.");
         } else {
-            if(!this.party.position){
+            if(!this.record.position){
                 this.setError("A posição não foi ajustada.");
             } else {
                 self = this;
 
-                this.party.owner = Meteor.userId();
+                this.record.owner = Meteor.userId();
 
-                Records.insert(this.party);
+                Records.insert(this.record);
 
-                this.uploader.subscribe("add-party-form", this.$bindToContext((error, fileId) => {
+                this.uploader.subscribe("add-record-form", this.$bindToContext((error, fileId) => {
                     if(error) {
                         self.setError('Houve um problema durante o upload da foto. Tente de novo.');
                         Records.remove({
-                            _id: self.party._id
+                            _id: self.record._id
                         });
                     }
                 }));
@@ -127,7 +127,7 @@ class PartyAddForm {
 
     setLocation(position) {
         this.$bindToContext(() => {
-            this.party.position = position;
+            this.record.position = position;
         })();
     }
 
@@ -138,25 +138,25 @@ class PartyAddForm {
     }
 
     updateSubArea() {
-        this.party.type.subArea = null;
+        this.record.type.subArea = null;
     }
 
     reset() {
-        this.party = {};
+        this.record = {};
     }
 }
 
-const name = 'partyAddForm';
+const name = 'recordAddForm';
 
 // Create a module
 export default angular.module(name, [
     angularMeteor,
-    PartyUpload
+    RecordUpload
 ]).component(name, {
     template,
     bindings: {
         done: '&?'
     },
     controllerAs: name,
-    controller: PartyAddForm
+    controller: RecordAddForm
 })

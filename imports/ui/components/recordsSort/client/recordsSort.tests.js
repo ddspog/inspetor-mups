@@ -1,6 +1,6 @@
 import {
-    name as PartiesSort
-} from '../partiesSort';
+    name as RecordsSort
+} from '../recordsSort';
 
 import 'angular-mocks';
 
@@ -18,11 +18,11 @@ import {
 
 should();
 
-describe('PartiesSort', function() {
+describe('RecordsSort', function() {
     spies.restoreAll();
 
     beforeEach(function(done) {
-        window.module(PartiesSort);
+        window.module(RecordsSort);
         done();
     });
 
@@ -33,7 +33,7 @@ describe('PartiesSort', function() {
         const order = -1;
 
         beforeEach(function(done) {
-            LoadController(PartiesSort, function(component) {
+            LoadController(RecordsSort, function(component) {
                 controller = component;
             }, done, {
                 onChange,

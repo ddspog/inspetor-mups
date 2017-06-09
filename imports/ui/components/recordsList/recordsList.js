@@ -10,26 +10,26 @@ import {
     Meteor
 } from 'meteor/meteor';
 
-import partiesListTemplate from './recordsList.html';
+import recordsListTemplate from './recordsList.html';
 import pageButtonTemplate from './pageButton.html';
 
 import {
-    Parties
-} from '../../../api/parties/index';
+    Records
+} from '../../../api/records/index';
 import {
-    name as PartyAddButton
-} from '../partyAddButton/partyAddButton';
+    name as RecordAddButton
+} from '../recordAddButton/recordAddButton';
 import {
-    name as PartyCreator
-} from '../partyCreator/partyCreator';
+    name as RecordCreator
+} from '../recordCreator/recordCreator';
 import {
-    name as PartyCard
-} from '../partyCard/partyCard';
+    name as RecordCard
+} from '../recordCard/recordCard';
 
 /**
- *  PartiesList Component
+ *  RecordsList Component
  */
-class PartiesList {
+class RecordsList {
     constructor($scope, $reactive) {
         'ngInject';
 
@@ -42,16 +42,16 @@ class PartiesList {
         };
         this.searchString = '';
 
-        this.subscribe('parties', () => [{}, this.getReactively('searchText')]);
+        this.subscribe('records', () => [{}, this.getReactively('searchText')]);
         this.subscribe('users');
 
         this.helpers({
-            parties() {
-                let cursor = Parties.find({}, {
+            records() {
+                let cursor = Records.find({}, {
                     sort: this.getReactively('sort')
                 });
 
-                this.setPartiesNumber(cursor.count());
+                this.setRecordsNumber(cursor.count());
 
                 let array = cursor.fetch();
                 let skip = parseInt((this.getReactively('page') - 1) * this.perPage);
@@ -61,13 +61,13 @@ class PartiesList {
                     return index >= skip && index < skip + perPage;
                 });
             },
-            partiesCount() {
+            recordsCount() {
                 let n = 0;
 
                 if(navigator.onLine && Meteor.status().connected){
-                    n = Counts.get('numberOfParties');
+                    n = Counts.get('numberOfRecords');
                 } else {
-                    let number = this.getReactively('partiesNumber');
+                    let number = this.getReactively('recordsNumber');
                     if(!!number){
                         n = number;
                     }
@@ -84,8 +84,8 @@ class PartiesList {
         });
     }
 
-    isOwner(party) {
-      return this.isLoggedIn && party.owner === this.currentUserId;
+    isOwner(record) {
+      return this.isLoggedIn && record.owner === this.currentUserId;
     }
 
     pageChanged(newPage) {
@@ -96,27 +96,27 @@ class PartiesList {
         this.sort = sort;
     }
 
-    setPartiesNumber(number) {
+    setRecordsNumber(number) {
         this.$bindToContext(() => {
-            this.partiesNumber = number;
+            this.recordsNumber = number;
         })();
     }
 }
 
-const name = 'partiesList';
+const name = 'recordsList';
 
 // Create a module
 export default angular.module(name, [
         angularMeteor,
         uiRouter,
         utilsPagination,
-        PartyAddButton,
-        PartyCreator,
-        PartyCard
+        RecordAddButton,
+        RecordCreator,
+        RecordCard
     ]).component(name, {
-        template: partiesListTemplate,
+        template: recordsListTemplate,
         controllerAs: name,
-        controller: PartiesList
+        controller: RecordsList
     })
     .config(config);
 

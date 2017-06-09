@@ -1,5 +1,5 @@
 import {
-    name as PartiesList
+    name as RecordsList
 } from '../recordsList';
 
 import 'angular-mocks';
@@ -22,7 +22,7 @@ import {
 
 should();
 
-describe('PartiesList', function() {
+describe('RecordsList', function() {
     if (!process.env.TESTING) {
         process.env.TESTING = 1;
     }
@@ -32,7 +32,7 @@ describe('PartiesList', function() {
             stubs.create('config', ConfigGoogleMap, 'apply').returns('');
         }
 
-        window.module(PartiesList);
+        window.module(RecordsList);
 
         done();
     });
@@ -46,7 +46,7 @@ describe('PartiesList', function() {
         let controller;
 
         beforeEach(function(done) {
-            LoadController(PartiesList, function(component) {
+            LoadController(RecordsList, function(component) {
                 controller = component;
             }, done);
         });

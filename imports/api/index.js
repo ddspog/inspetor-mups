@@ -1,4 +1,4 @@
 import './users';
-import './parties/index';
+import './records/index';
 import './images/index';
 import './keys/index';

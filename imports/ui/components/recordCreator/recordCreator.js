@@ -5,15 +5,15 @@ import {
     Meteor
 } from 'meteor/meteor';
 
-import template from './partyCreator.html';
+import template from './recordCreator.html';
 import {
     name as DisplayNameFilter
 } from '../../filters/displayName/displayNameFilter';
 
 /**
- * PartyCreator component
+ * RecordCreator component
  */
-class PartyCreator {
+class RecordCreator {
     constructor($scope) {
         'ngInject';
 
@@ -21,11 +21,11 @@ class PartyCreator {
 
         this.helpers({
             creator() {
-                if(!this.party) {
+                if(!this.record) {
                     return '';
                 }
 
-                const owner = this.party.owner;
+                const owner = this.record.owner;
 
                 if (Meteor.userId() !== null && owner === Meteor.userId()) {
                     return 'me';
@@ -37,7 +37,7 @@ class PartyCreator {
     }
 }
 
-const name = 'partyCreator';
+const name = 'recordCreator';
 
 // create a module
 export default angular.module(name, [
@@ -47,7 +47,7 @@ export default angular.module(name, [
     template,
     controllerAs: name,
     bindings: {
-        party: '<'
+        record: '<'
     },
-    controller: PartyCreator
+    controller: RecordCreator
 });
