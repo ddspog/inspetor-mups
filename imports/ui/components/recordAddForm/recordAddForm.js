@@ -96,9 +96,7 @@ class RecordAddForm {
         if (!this.uploader) {
             this.setError("A foto não foi configurada.");
         } else {
-            if(!this.record.position){
-                this.setError("A posição não foi ajustada.");
-            } else {
+            if (!!this.record.position || !!this.record.notes) {
                 self = this;
 
                 this.record.owner = Meteor.userId();
@@ -121,6 +119,8 @@ class RecordAddForm {
                 }
 
                 this.reset();
+            } else {
+                this.setError("A posição não foi ajustada.");
             }
         }
     }
