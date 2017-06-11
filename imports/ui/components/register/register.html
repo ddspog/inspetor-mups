@@ -1,18 +1,16 @@
 <md-content layout="row" layout-align="center start" layout-fill layout-margin>
     <div layout="column" flex="90" layout-fill>
-        <br>
         <!-- header -->
-        <div layout="column" flex class="has-tube-top" layout-fill>
-            <br>
+        <div layout="column" flex layout-fill>
             <h5 class="md-headline">
                 Registro de usuário
             </h5>
         </div>
         <!-- content -->
-        <div layout="column" flex class="has-tube-middle" layout-fill>
+        <div layout="column" flex layout-fill>
             <div layout="column" layout-fill layout-margin layout-padding>
                 <!-- step 1: phone verification -->
-                <form name="userForm" ng-show="!register.isStepTwo" layout="column" layout-fill layout-padding layout-margin>
+                <form name="userForm" layout="column" layout-fill layout-padding layout-margin>
                     <h5>
                         Insira seus dados a seguir:
                     </h5>
@@ -20,7 +18,7 @@
                         <label>
                             Nome de Usuário
                         </label>
-                        <input md-maxlength="30" required name="name" ng-model="register.credentials.profile.name"/>
+                        <input md-maxlength="30" required name="name" ng-model="register.credentials.username"/>
                         <div class="hint">
                             Como devemos chamar você?
                         </div>
@@ -34,52 +32,40 @@
                     </md-input-container>
                     <md-input-container flex>
                         <label>
-                            Número do Celular em uso
+                            Email do usuário
                         </label>
-                        <input ng-model="register.credentials.phone" required
-                               ng-pattern="/^[+]55[0-9]{2}9[0-9]{4}[0-9]{4}$/"/>
+                        <input ng-model="register.credentials.email" required
+                               ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"/>
                         <div class="hint">
-                            +55##9########
+                            Seu principal email em uso.
                         </div>
                     </md-input-container>
                     <p>
-                        Iremos verificar seu número via SMS.
+                        Para o controle a inserção de dados, precisamos no seu registro, de um código de autorização.
                     </p>
-                </form>
-                <!-- step 2: code verification -->
-                <form ng-show="register.isStepTwo" layout="column" layout-fill layout-padding layout-margin>
-                    <h5>
-                        Digite o código enviado por SMS.
-                    </h5>
-                    <md-input-container>
+                    <p>
+                        Este código é distribuído por responsáveis a fim de agrupar a coleta de dados, para avaliação.
+                    </p>
+                    <md-input-container class="md-block" flex>
                         <label>
-                            Código
+                            Código de Autorização.
                         </label>
-                        <input md-maxlength="4" md-minlength="4" ng-model="register.verificationCode" required/>
+                        <input md-maxlength="30" required ng-model="register.credentials.profile.group"/>
                         <div class="hint">
-                            Código de 4 dígitos.
+                            A que grupo de coleta você representa?
                         </div>
                     </md-input-container>
                 </form>
             </div>
         </div>
         <!-- buttons -->
-        <div flex layout-fill class="has-tube-end">
+        <div flex layout-fill>
             <div layout="column" layout-fill layout-margin layout-padding>
                 <div layout="row" layout-fill>
-                    <md-button class="md-raised md-primary" ng-show="!register.isStepTwo" ng-click="register.verifyPhone()"
-                               aria-label="register" ng-disabled="!register.credentials.phone" layout-fill>
+                    <md-button class="md-raised md-primary" ng-click="register.registerUser()"
+                               aria-label="register" ng-disabled="!register.credentials.username || !register.credentials.email || !register.credentials.password || !register.credentials.profile.group" layout-fill>
                         <span flex="80" flex-offset="10">
-                            Verificar número
-                        </span>
-                    </md-button>
-                </div>
-
-                <div layout="row" layout-fill>
-                    <md-button class="md-raised md-primary" ng-show="register.isStepTwo" ng-click="register.verifyCode()"
-                               aria-label="register" ng-disabled="!register.verificationCode" layout-fill>
-                        <span flex="80" flex-offset="10">
-                            Verificar Código
+                            Registrar Usuário
                         </span>
                     </md-button>
                 </div>

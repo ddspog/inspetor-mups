@@ -3,8 +3,15 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import {
+    Meteor
+} from 'meteor/meteor'
+import {
     Accounts
-} from 'meteor/accounts-base';
+} from 'meteor/accounts-base'
+
+import {
+    Groups
+} from '../../../api/groups/index';
 
 import template from './register.html';
 
@@ -22,73 +29,65 @@ class Register {
 
         $reactive(this).attach($scope);
 
-        this.isStepTwo = false;
+        this.subscribe('groups');
+
         this.credentials = {
             profile: {
-                name: ''
+                group: ''
             },
-            password: '',
-            phone: '+55'
+            email: '',
+            username: '',
+            password: ''
         };
-        this.verificationCode = '';
         this.error = '';
     }
 
-    verifyPhone() {
-        Accounts.createUserWithPhone(this.credentials, this.$bindToContext((err) => {
-            if(err) {
-                // display error and reason
-                this.error = err.reason || err;
-            } else {
-                this.error = '';
-                requestVerification();
-            }
-        }));
-    }
+    registerUser() {
+        if(this.verifyCode()){
+            Accounts.createUser(this.credentials, this.$bindToContext((err) => {
+                if(err) {
+                    let alreadyExists = new RegExp('/already exists./');
+                    let hasUsername = new RegExp('/Username/');
+                    let hasEmail = new RegExp('/Email/');
 
-    requestVerification() {
-        Accounts.requestPhoneVerification(this.credentials.phone, this.$bindToContext((err) => {
-            if (err) {
-                // display also reason of Meteor.Error
-                this.error = err.reason || err;
-            } else {
-                this.error = '';
-                // move to code verification
-                this.isStepTwo = true;
-            }
-        }));
+                    if(alreadyExists.test(err.reason)){
+                        if(hasUsername.test(err.reason)) {
+                            this.setError('Nome de usuário já registrado');
+                        } else if (hasEmail.test(err.reason)){
+                            this.setError('Email já registrado.');
+                        } else {
+                            // display error and reason
+                            this.setError(err);
+                        }
+                    } else {
+                        // display error and reason
+                        this.setError(err);
+                    }
+                } else {
+                    this.setError('');
+
+                    Meteor.call('verifyUserEmail', (err, res) => {});
+
+                    // redirect to records list
+                    this.$state.go('records');
+                }
+            }));
+        } else {
+            this.setError('Utilize um código válido.');
+        }
     }
 
     verifyCode() {
-        Accounts.verifyPhone(this.credentials.phone, this.verificationCode, this.$bindToContext((err) => {
-            if (err) {
-                if(Accounts.isPhoneVerified) {
-                    // redirect to records list
-                    this.$state.go('records');
-                } else {
-                    this.error = err.reason || err;
-                }
-            } else {
-                // redirect to records list
-                this.$state.go('records');
-            }
-        }));
-        /*
-         if (logged) {
-         Accounts.changePassword('', this.credentials.password, this.$bindToContext((err) => {
-         if (err) {
-         if(Accounts.isPhoneVerified) {
-         // redirect to records list
-         this.$state.go('records');
-         } else {
-         this.error = err.reason || err;
-         }
-         } else {
-         // redirect to records list
-         this.$state.go('records');
-         }
-         }
-         })); */
+        let group = Groups.findOne({
+            _id: this.credentials.profile.group
+        });
+        return !!group;
+    }
+
+    setError(err) {
+        this.$bindToContext(() => {
+            this.error = err.reason || err;
+        })();
     }
 }
 

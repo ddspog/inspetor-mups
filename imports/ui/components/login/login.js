@@ -25,25 +25,29 @@ class Login {
         $reactive(this).attach($scope);
 
         this.credentials = {
-            user: {
-                phone: ''
-            },
+            username: '',
             password: ''
         };
         this.error = '';
     }
 
     loginUser() {
-        Meteor.loginWithPhoneAndPassword(this.credentials.user, this.credentials.password, this.$bindToContext((err) => {
+        Meteor.loginWithPassword(this.credentials.username, this.credentials.password, this.$bindToContext((err) => {
             if (err) {
                 // display also reason of Meteor.Error
-                this.error = err.reason || err;
+                this.setError(err);
             } else {
-                this.error = '';
+                this.setError('');
                 // redirect to records list
                 this.$state.go('records');
             }
         }));
+    }
+
+    setError(err) {
+        this.$bindToContext(() => {
+            this.error = err.reason || err;
+        })();
     }
 }
 

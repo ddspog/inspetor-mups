@@ -3,26 +3,39 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import {
-    Accounts
-} from 'meteor/accounts-base';
+    Meteor
+} from 'meteor/meteor';
 
 import template from './password.html';
 
-import {
-    AccountsGate
-} from '../../classes/accountsGate/accountsGate';
-
-import {
-    AfterLogInout
-} from '../../callbacks/redirect/redirectCallback';
-
-class Password extends AccountsGate {
+class Password {
     constructor($scope, $reactive, $state) {
-        super($scope, $reactive, $state);
+        'ngInject';
+
+        this.$state = $state;
+
+        $reactive(this).attach($scope);
+
+        this.credentials = {
+            email: ''
+        };
+        this.error = '';
     }
 
     reset() {
-        Accounts.forgotPassword(this.credentials, this.$bindToContext(AfterLogInout(this, 'login')));
+        Meteor.call('forgotPasswordEmail', this.credentials.email, (err, res) => {
+            if(!!err) {
+                this.setError(err);
+            } else {
+                this.$state.go('login');
+            }
+        });
+    }
+
+    setError(err) {
+        this.$bindToContext(() => {
+            this.error = err.reason || err;
+        })();
     }
 }
 
