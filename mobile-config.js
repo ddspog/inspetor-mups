@@ -1,5 +1,5 @@
 App.info({
-    name: 'tsu',
+    name: 'Inspetor Mups',
     description: 'Tool for recording sanitation problems',
     author: 'Dênnis Dantas de Sousa',
     email: 'ddspog@gmail.com'
