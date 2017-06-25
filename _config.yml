@@ -1,1 +1,24 @@
-theme: jekyll-theme-cayman
+# Setup
+title:        Inspetor Mups
+description: >
+    Aplicativo para monitorar problemas de saneamento básico na UFCG. Contamos com a ajuda
+    de alunos cadastrados em grupos de coleta, para coletar registros destes problemas.
+    Pretendemos utilizar os dados para resolver cada problema registrado e elaborar ferramenta
+    de apoio à gestão na área sanitária do campus.
+tagline:      Aplicativo para monitorar problemas de saneamento básico na UFCG.
+baseurl:      ""
+paginate:     1
+
+# About/contact
+author:
+  name:       Dênnis Dantas de Sousa
+  url:        https://ddspog.github.io/
+  email:      ddspog@gmail.com
+  github_username: ddspog
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
