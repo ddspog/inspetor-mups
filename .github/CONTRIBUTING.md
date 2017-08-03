@@ -5,7 +5,7 @@
 :+1::tada: First off, thanks for taking the time to contribute!
 :tada::+1:
 
-The following is a set of guidelines for contributing to Inspetor Mups (application for tracking sanitation problems at UFCG) and its packages, which are hosted in the [tsu](https://github.com/ddspog/tsu) on GitHub. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to Inspetor Mups (application for tracking sanitation problems at UFCG) and its packages, which are hosted in the [Inspetor Mups](https://github.com/ddspog/inspetor-mups) on GitHub. These are just guidelines, not rules, use your best judgment and feel free to propose changes to this document in a pull request.
 
 #### Table Of Contents
 
@@ -94,7 +94,7 @@ Make pagination a very simple task!
  users to crop the images they have and update it on your site.
 
 Further details on how to use this seed are available on the
-[Wiki](https://github.com/ddspog/tsu/wiki).
+[Wiki](https://github.com/ddspog/inspetor-mups/wiki).
 
 ## How Can I Contribute?
 
@@ -109,10 +109,10 @@ Before creating bug reports, please check [this list](#before-submitting-a-bug-r
 * **Check it carefully.** You might be able to find the cause of the
 problem and fix things yourself. Most importantly, check if you can
 reproduce the problem
-[in the latest version of Inspetor Mups](https://github.com/ddspog/tsu).
+[in the latest version of Inspetor Mups](https://github.com/ddspog/inspetor-mups).
 * **Check the FAQs on the forum** for a list of common questions and
 problems.
-* **Perform a [cursory search](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
+* **Perform a [cursory search](https://github.com/ddspog/inspetor-mups/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
  to see if the problem has already been reported. If it has, add a
  comment to the existing issue instead of opening a new one.
 
@@ -120,7 +120,7 @@ problems.
 
 Bugs are tracked as
 [GitHub issues](https://guides.github.com/features/issues/). Create an
- issue on [Inspetor Mups](https://github.com/ddspog/tsu/issues/new) and
+ issue on [Inspetor Mups](https://github.com/ddspog/inspetor-mups/issues/new) and
   provide the following information.
 
 Explain the problem and include additional details to help maintainers
@@ -204,7 +204,7 @@ Before creating enhancement suggestions, please check
 * **Check if this enhancement it's already available**. Most importantly,
  check if you can get the desired behavior by changing configuration.
 * **Perform a
-[cursory search](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
+[cursory search](https://github.com/ddspog/inspetor-mups/issues?utf8=%E2%9C%93&q=is%3Aissue+user%3Addspog+)**
  to see if the enhancement has already been suggested. If it has, add
  a comment to the existing issue instead of opening a new one.
 
@@ -233,9 +233,9 @@ also has some tips to write the issue as enhancement suggestion.
 
 Unsure where to begin contributing to Atom? You can start by looking through these `beginner` and `help-wanted` issues:
 
-* [Beginner issues](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Aatom+sort%3Acomments-desc+) -
+* [Beginner issues](https://github.com/ddspog/inspetor-mups/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abeginner+label%3Ahelp-wanted+user%3Aatom+sort%3Acomments-desc+) -
 issues which should only require a few lines of code, and a test or two.
-* [Help wanted issues](https://github.com/ddspog/tsu/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+sort%3Acomments-desc+) -
+* [Help wanted issues](https://github.com/ddspog/inspetor-mups/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Ahelp-wanted+sort%3Acomments-desc+) -
  issues which should be a bit more involved than `beginner` issues.
 
 Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.

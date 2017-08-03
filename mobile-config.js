@@ -6,7 +6,7 @@ App.info({
 });
 
 App.accessRule('*://localhost:12768/*');
-App.accessRule('*://tsu.herokuapp.com/*');
+App.accessRule('*://inspetor-mups.herokuapp.com/*');
 App.accessRule('*://ajax.googleapis.com/*');
 App.accessRule('*://fonts.googleapis.com/*');
 

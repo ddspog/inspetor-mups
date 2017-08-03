@@ -1,11 +1,11 @@
 {
-  "name": "tsu",
+  "name": "inspetor-mups",
   "private": true,
   "scripts": {
     "start": "meteor --port=9000 --settings \"private\\settings\\development.json\"",
     "test": "meteor test --driver-package=practicalmeteor:mocha",
     "android": "meteor run android-device --settings \"private\\settings\\development.json\"",
-    "online": "meteor run android-device --mobile-server https://tsu.herokuapp.com/ --settings \"private\\settings\\development.json\""
+    "online": "meteor run android-device --mobile-server https://inspetor-mups.herokuapp.com/ --settings \"private\\settings\\development.json\""
 
   },
   "dependencies": {
