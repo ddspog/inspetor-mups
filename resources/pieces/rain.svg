@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 48 48" viewBox="0 0 48 48" x="0px" y="0px" width="48px" height="48px" version="1.1" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g>
+	<circle fill="#bbdefb" cx="29.5" cy="13.5" r="8.5" />
+	<circle fill="#bbdefb" cx="37" cy="21.893" r="7" />
+	<circle fill="#bbdefb" cx="11" cy="22" r="7" />
+	<circle fill="#bbdefb" cx="17.5" cy="14.5" r="6.5" />
+	<circle fill="#bbdefb" cx="25" cy="19.893" r="7" />
+	<path fill="#bbdefb" d="M 7 25 c 0 2.209 1.791 4 4 4 h 25 c 2.209 0 4 -1.791 4 -4 v -1 c 0 -2.209 -1.791 -4 -4 -4 H 11 c -2.209 0 -4 1.791 -4 4 V 25 Z" />
+</g>
+<g>
+	<path fill="#2196f3" d="M 34.95 37.15 c -1.132 1.133 -2.968 1.133 -4.101 0 c -1.134 -1.131 -1.133 -2.969 0 -4.1 C 31.982 31.917 37 31 37 31 S 36.082 36.02 34.95 37.15 Z" />
+	<path fill="#2196f3" d="M 23.95 41.15 c -1.132 1.132 -2.968 1.132 -4.101 0 c -1.133 -1.133 -1.132 -2.969 0 -4.101 c 1.133 -1.133 6.152 -2.05 6.152 -2.05 S 25.082 40.02 23.95 41.15 Z" />
+	<path fill="#2196f3" d="M 13.95 37.15 c -1.132 1.133 -2.968 1.133 -4.101 0 c -1.133 -1.131 -1.132 -2.969 0 -4.1 c 1.132 -1.133 6.151 -2.05 6.151 -2.05 S 15.082 36.02 13.95 37.15 Z" />
+</g>
+</svg>

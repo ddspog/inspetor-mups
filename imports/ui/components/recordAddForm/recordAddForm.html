@@ -1,0 +1,75 @@
+<div layout="column" layout-padding>
+    <md-input-container>
+        <label class="xs-pos-rel xs-posti-15 xs-posli-5">
+            Foto da falha identificada:
+        </label>
+        <record-upload record="recordAddForm.record._id" control="recordAddForm.uploader"></record-upload>
+    </md-input-container>
+
+    <md-input-container>
+        <label>
+            Título:
+        </label>
+        <input md-maxlength="40" required name="title" ng-model="recordAddForm.record.name">
+        <div class="hint">
+            Frase descrevendo a falha.
+        </div>
+    </md-input-container>
+    <md-input-container>
+        <label class="xs-pos-rel xs-posti-15 xs-posli-5">
+            Área do Problema:
+        </label>
+        <md-radio-group required ng-model="recordAddForm.record.type.area" ng-change="recordAddForm.updateSubArea()">
+            <md-radio-button ng-repeat="it in recordAddForm.areas"
+                             class="md-primary"
+                             ng-value="it.value"
+                             aria-label="{{it.name}}">
+                <md-icon class="xs-fsz-24">
+                    {{ it.icon | mdiIconFilter }}</md-icon>
+                <span class="xs-pos-rel xs-posl-6" ng-bind="it.name"></span>
+            </md-radio-button>
+        </md-radio-group>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Subárea do Problema:
+        </label>
+        <md-select required ng-model="recordAddForm.record.type.subArea">
+            <md-option ng-repeat="it in recordAddForm.subAreaList" value="{{it.value}}">
+                {{it.name}}
+            </md-option>
+        </md-select>
+        <div class="hint">
+            {{recordAddForm.subAreaDescription}}
+        </div>
+    </md-input-container>
+    <md-input-container>
+        <label>
+            Notas:
+        </label>
+        <textarea md-maxlength="200" rows="5" md-select-on-focus ng-model="recordAddForm.record.notes"></textarea>
+        <div class="hint">
+            O que viu mais detalhes úteis.
+        </div>
+    </md-input-container>
+
+    <div flex layout="row">
+        <md-progress-circular flex="10" md-mode="indeterminate" md-diameter="15" ng-if="!recordAddForm.locationFound"></md-progress-circular>
+        <span flex="85" ng-if="!recordAddForm.locationFound">Obtendo geolocalização...</span>
+        <span flex="95" ng-if="recordAddForm.locationFound">{{ 'Posição: (' + recordAddForm.latitude + ', ' + recordAddForm.longitude + ')'}}</span>
+        <md-icon flex="5" class="xs-fsz-24">
+            {{ 'map-marker' | mdiIconFilter}}</md-icon>
+    </div>
+
+    <div flex layout="row" class="error-message">
+        <span flex>{{recordAddForm.error}}</span>
+    </div>
+
+    <div flex layout="row" layout-align="center start">
+        <md-button class="md-raised" ng-click="recordAddForm.submit()">
+            <div flex="50">
+                Registrar
+            </div>
+        </md-button>
+    </div>
+</div>

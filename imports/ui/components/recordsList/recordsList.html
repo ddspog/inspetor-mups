@@ -1,0 +1,14 @@
+<div flex="grow" layout="column" layout-padding layout-align="top">
+    <record-add-button ng-show="recordsList.isLoggedIn"></record-add-button>
+
+    <div flex="100" layout="column" layout-align="center center">
+        <md-content flex="85" layout="column" layout-fill>
+            <div flex="grow" dir-paginate="record in recordsList.records | itemsPerPage: recordsList.perPage"
+                        total-items="recordsList.recordsCount" class="lg-layer-front-1">
+                <record-card id="record._id" name="record.name" image="record.image"
+                            type="record.type" has-thumb="record.hasThumb" ng-if="!!record._id"></record-card>
+            </div>
+        </md-content>
+        <dir-pagination-controls flex="15" on-page-change="recordsList.pageChanged(newPageNumber)"></dir-pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<md-content layout="row" layout-align="center start" layout-fill layout-margin>
+    <div layout="column" flex="90" layout-fill>
+        <!-- header -->
+        <div layout="column" flex layout-fill>
+            <h5 class="md-headline">
+                Registro de usuário
+            </h5>
+        </div>
+        <!-- content -->
+        <div layout="column" flex layout-fill>
+            <div layout="column" layout-fill layout-margin layout-padding>
+                <!-- step 1: phone verification -->
+                <form name="userForm" layout="column" layout-fill layout-padding layout-margin>
+                    <h5>
+                        Insira seus dados a seguir:
+                    </h5>
+                    <md-input-container class="md-block" flex>
+                        <label>
+                            Nome de Usuário
+                        </label>
+                        <input md-maxlength="30" required name="name" ng-model="register.credentials.username"/>
+                        <div class="hint">
+                            Como devemos chamar você?
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>
+                            Senha
+                        </label>
+                        <input type="password" md-maxlength="15" md-minlength="6"
+                               required ng-model="register.credentials.password"/>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>
+                            Email do usuário
+                        </label>
+                        <input ng-model="register.credentials.email" required
+                               ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"/>
+                        <div class="hint">
+                            Seu principal email em uso.
+                        </div>
+                    </md-input-container>
+                    <p>
+                        Para o controle a inserção de dados, precisamos no seu registro, de um código de autorização.
+                    </p>
+                    <p>
+                        Este código é distribuído por responsáveis a fim de agrupar a coleta de dados, para avaliação.
+                    </p>
+                    <md-input-container class="md-block" flex>
+                        <label>
+                            Código de Autorização.
+                        </label>
+                        <input md-maxlength="30" required ng-model="register.credentials.profile.group"/>
+                        <div class="hint">
+                            A que grupo de coleta você representa?
+                        </div>
+                    </md-input-container>
+                </form>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div flex layout-fill>
+            <div layout="column" layout-fill layout-margin layout-padding>
+                <div layout="row" layout-fill>
+                    <md-button class="md-raised md-primary" ng-click="register.registerUser()"
+                               aria-label="register" ng-disabled="!register.credentials.username || !register.credentials.email || !register.credentials.password || !register.credentials.profile.group" layout-fill>
+                        <span flex="80" flex-offset="10">
+                            Registrar Usuário
+                        </span>
+                    </md-button>
+                </div>
+
+                <!-- display an error -->
+                <div layout="row" layout-fill>
+                    <md-toolbar ng-show="register.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+                        <p class="md-body-1">{{ register.error }}</p>
+                    </md-toolbar>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</md-content>

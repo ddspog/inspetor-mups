@@ -1,0 +1,17 @@
+<md-input-container layout="row" layout-align="center center" layout-fill>
+    <div flex="5"></div>
+    <md-button class="md-button-icon" md-colors="{background: 'grey-50'}"
+               ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">
+        <span flex="5">
+            <md-icon class="xs-va-mid xs-fsz-xlg">{{ 'chevron-left' | mdiIconFilter }}</md-icon>
+        </span>
+    </md-button>
+    <div flex="noshrink" class="range-label">{{ range.lower }} - {{ range.upper }} dentre {{ range.total }}</div>
+    <md-button class="md-button-icon" md-colors="{background: 'grey-50'}"
+               ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">
+        <span flex="5">
+            <md-icon class="xs-va-mid xs-fsz-xlg">{{ 'chevron-right' | mdiIconFilter }}</md-icon>
+        </span>
+    </md-button>
+    <div flex="5"></div>
+</md-input-container>

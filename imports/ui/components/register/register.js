@@ -4,15 +4,16 @@ import uiRouter from 'angular-ui-router';
 
 import {
     Meteor
-} from 'meteor/meteor';
+} from 'meteor/meteor'
 import {
     Accounts
-} from 'meteor/accounts-base';
+} from 'meteor/accounts-base'
 
-import webTemplate from './web.html';
-import { Register as RegisterWeb } from './web';
-import mobileTemplate from './mobile.html';
-import { Register as RegisterMobile } from './mobile';
+import {
+    Groups
+} from '../../../api/groups/index';
+
+import template from './register.html';
 
 import {
     name as MDIIconFilter
@@ -20,18 +21,77 @@ import {
 
 import MonitorProvider from '../../services/monitor/monitor';
 
-import {
-    SocialGate
-} from '../../classes/socialGate/socialGate';
+class Register {
+    constructor($scope, $reactive, $state) {
+        'ngInject';
 
-import {
-    AfterLogInout
-} from '../../callbacks/redirect/redirectCallback';
+        this.$state = $state;
+
+        $reactive(this).attach($scope);
+
+        this.subscribe('groups');
+
+        this.credentials = {
+            profile: {
+                group: ''
+            },
+            email: '',
+            username: '',
+            password: ''
+        };
+        this.error = '';
+    }
+
+    registerUser() {
+        if(this.verifyCode()){
+            Accounts.createUser(this.credentials, this.$bindToContext((err) => {
+                if(err) {
+                    let alreadyExists = new RegExp('/already exists./');
+                    let hasUsername = new RegExp('/Username/');
+                    let hasEmail = new RegExp('/Email/');
+
+                    if(alreadyExists.test(err.reason)){
+                        if(hasUsername.test(err.reason)) {
+                            this.setError('Nome de usuário já registrado');
+                        } else if (hasEmail.test(err.reason)){
+                            this.setError('Email já registrado.');
+                        } else {
+                            // display error and reason
+                            this.setError(err);
+                        }
+                    } else {
+                        // display error and reason
+                        this.setError(err);
+                    }
+                } else {
+                    this.setError('');
+
+                    Meteor.call('verifyUserEmail', (err, res) => {});
+
+                    // redirect to records list
+                    this.$state.go('records');
+                }
+            }));
+        } else {
+            this.setError('Utilize um código válido.');
+        }
+    }
+
+    verifyCode() {
+        let group = Groups.findOne({
+            _id: this.credentials.profile.group
+        });
+        return !!group;
+    }
+
+    setError(err) {
+        this.$bindToContext(() => {
+            this.error = err.reason || err;
+        })();
+    }
+}
 
 const name = 'register';
-
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
-const controller = Meteor.isCordova  ? RegisterMobile : RegisterWeb;
 
 // create a module
 export default angular.module(name, [
@@ -41,7 +101,7 @@ export default angular.module(name, [
     ])
     .component(name, {
         template,
-        controller,
+        controller: Register,
         controllerAs: name
     })
     .config(config)

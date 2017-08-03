@@ -1,0 +1,18 @@
+<md-card flex="nogrow" class="lg-layer-front-1">
+    <img class="p-image md-card-header"
+         ng-src="{{recordCard.getPicture}}" ng-if="recordCard.id"/>
+    <md-card-title>
+        <md-card-title-text layout="row">
+            <span flex="90" class="md-headline" ui-sref="recordDetails({ recordId: recordCard.id })">
+                {{recordCard.name}}
+            </span>
+            <md-icon flex="10" class="xs-fsz-24">
+                {{ recordCard.getIcon | mdiIconFilter }}</md-icon>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+        {{ recordCard.type | sanityProblemTypeFilter }}
+    </md-card-content>
+    <md-card-actions>
+    </md-card-actions>
+</md-card>

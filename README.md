@@ -1,4 +1,4 @@
-# tsu
+# Inspetor Mups
 **v.0.0.1**
 
 meteor-angular-material application to locate sanitation problems at UFCG (federal university of Campina Grande) on Android.

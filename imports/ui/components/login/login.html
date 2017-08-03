@@ -1,0 +1,62 @@
+<md-content layout="row" layout-align="center start" layout-fill layout-margin>
+    <div layout="column" flex="90" layout-fill>
+        <!-- header -->
+        <div layout="column" flex layout-fill>
+            <h3 class="md-headline">
+                Login do Usuário
+            </h3>
+        </div>
+        <!-- content -->
+        <div layout="column" flex layout-fill>
+            <div layout="column" layout-fill layout-margin layout-padding>
+
+                <!-- login form -->
+                <form name="login.loginForm" layout="column" layout-fill layout-padding layout-margin>
+                    <h5>
+                        Insira seus dados a seguir:
+                    </h5>
+                    <md-input-container class="md-block" flex>
+                        <label>
+                            Nome de Usuário
+                        </label>
+                        <input ng-model="login.credentials.username" md-maxlength="30" required/>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>
+                            Senha
+                        </label>
+                        <input type="password" md-maxlength="15" md-minlength="6"
+                               required ng-model="login.credentials.password"/>
+                    </md-input-container>
+                </form>
+            </div>
+        </div>
+
+        <div flex layout-fill>
+            <div layout="column" layout-fill layout-margin layout-padding>
+
+                <div layout="row" layout-fill>
+                    <md-button class="md-raised md-primary" ng-click="login.loginUser()" ng-disabled="!login.loginForm.$valid" aria-label="login" layout-fill>
+                      <span flex="40">
+                        Login
+                      </span>
+                    </md-button>
+                </div>
+
+                <!-- display an error -->
+                <div layout="row" layout-fill>
+                    <md-toolbar ng-show="login.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+                        <p class="md-body-1">{{ login.error }}</p>
+                    </md-toolbar>
+                </div>
+
+                <!-- other actions -->
+                <div layout="row" layout-align="center" layout-fill>
+                    <a class="md-button" ui-sref="password">
+                        Esqueceu a senha?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</md-content>

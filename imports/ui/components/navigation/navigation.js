@@ -5,11 +5,9 @@ import {
     name as Auth
 } from '../auth/auth';
 
-import webTemplate from './web.html';
-import mobileTemplate from './mobile.html';
+import template from './navigation.html';
 
 const name = 'navigation';
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
 
 // Create a module
 export default angular.module(name, [

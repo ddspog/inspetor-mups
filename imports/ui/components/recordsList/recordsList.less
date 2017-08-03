@@ -1,0 +1,36 @@
+records-list {
+    > div:first-child {
+        height: calc(~"100vh - 64px");
+    }
+
+    [ui-sref] {
+        cursor: pointer;
+    }
+
+    .list-web {
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+
+    .list-mobile > .card:first-child {
+        margin-top: 0;
+    }
+    
+    img.image-bar {
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.parent-cards {
+    overflow: hidden;
+}
+
+@import "./pageButton.less";
+@import "../recordCard/recordCard.less";
+@import "../recordRemove/recordRemove.less";
+@import "../recordAddButton/recordAddButton.less";
+@import "../recordAddButton/recordAddModal.less";

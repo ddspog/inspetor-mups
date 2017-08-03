@@ -27,10 +27,6 @@ import {
     name as Password
 } from '../password/password';
 
-import {
-    AfterLogInout
-} from '../../callbacks/redirect/redirectCallback';
-
 class Auth {
     constructor($scope, $reactive, $state) {
         'ngInject';
@@ -50,7 +46,7 @@ class Auth {
     }
 
     logout(callback) {
-        Accounts.logout(AfterLogInout(this, 'parties', callback));
+        Accounts.logout(callback);
     }
 }
 

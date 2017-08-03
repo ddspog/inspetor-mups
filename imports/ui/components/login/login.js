@@ -6,10 +6,7 @@ import {
     Meteor
 } from 'meteor/meteor';
 
-import webTemplate from './web.html';
-import {Login as LoginWeb} from './web';
-import mobileTemplate from './mobile.html';
-import {Login as LoginMobile} from './mobile';
+import template from './login.html';
 
 import {
     name as MDIIconFilter
@@ -19,8 +16,40 @@ import MonitorProvider from '../../services/monitor/monitor';
 
 const name = 'login';
 
-const template = Meteor.isCordova ? mobileTemplate : webTemplate;
-const controller = Meteor.isCordova ? LoginMobile : LoginWeb;
+class Login {
+    constructor($scope, $reactive, $state) {
+        'ngInject';
+
+        this.$state = $state;
+
+        $reactive(this).attach($scope);
+
+        this.credentials = {
+            username: '',
+            password: ''
+        };
+        this.error = '';
+    }
+
+    loginUser() {
+        Meteor.loginWithPassword(this.credentials.username, this.credentials.password, this.$bindToContext((err) => {
+            if (err) {
+                // display also reason of Meteor.Error
+                this.setError(err);
+            } else {
+                this.setError('');
+                // redirect to records list
+                this.$state.go('records');
+            }
+        }));
+    }
+
+    setError(err) {
+        this.$bindToContext(() => {
+            this.error = err.reason || err;
+        })();
+    }
+}
 
 // create a module
 export default angular.module(name, [
@@ -30,7 +59,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         template,
-        controller,
+        controller: Login,
         controllerAs: name
     })
     .config(config)

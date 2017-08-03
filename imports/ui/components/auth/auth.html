@@ -1,14 +1,16 @@
 <div layout="row">
     <md-button aria-label="Login" ui-sref="login" ng-hide="auth.isLoggedIn">
-        Login
+        <span flex="50">Login</span>
     </md-button>
     <md-button aria-label="Register" ui-sref="register" ng-hide="auth.isLoggedIn">
-        Registro
+        <span flex="50">Registro</span>
     </md-button>
-    <md-button flex="15" class="md-button-icon" aria-label="Logout" ng-click="auth.logout()" ng-show="auth.isLoggedIn" aria-label="Logout">
-        <md-icon class="xs-va-mid xs-fsz-xlg">{{ 'logout' | mdiIconFilter }}</md-icon>
+    <md-button class="md-button-icon" aria-label="Logout" ng-click="auth.logout()" ng-show="auth.isLoggedIn" aria-label="Logout">
+        <span flex="15">
+            <md-icon class="xs-va-mid xs-fsz-xlg">{{ 'logout' | mdiIconFilter }}</md-icon>
+        </span>
     </md-button>
-    <div flex="grow" ng-show="auth.isLoggedIn" class="sm-va-mid sm-pt-7" layout="column" layout-align="center">
+    <div flex="85" ng-show="auth.isLoggedIn" class="sm-va-mid sm-pt-7" layout="column" layout-align="center">
       {{ auth.currentUser | displayNameFilter }}
     </div>
 </div>

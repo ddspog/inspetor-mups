@@ -11,6 +11,10 @@ function DisplayNameFilter(user) {
         return user.profile.name;
     }
 
+    if (user.username) {
+        return user.username;
+    }
+
     if (user.emails) {
         return user.emails[0].address;
     }
