@@ -152,7 +152,7 @@ O Controlador de Dados se reserva o direito de fazer alterações nesta polític
 
 ### Informações sobre esta política de privacidade
 
-O Controlador de Dados é responsável por esta política de privacidade, elaborada a partir dos módulos fornecidos pela Iubenda e hospedados nos servidores da Iubenda.
+O Controlador de Dados é responsável por esta política de privacidade.
 
 ## Definições e referências jurídicas
 
