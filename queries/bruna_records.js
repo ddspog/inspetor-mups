@@ -1,1 +1,0 @@
-db.getCollection('records').find({'owner': 'KTPSFb9nerkRrre7r'})

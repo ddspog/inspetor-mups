@@ -3,3 +3,4 @@ _site/
 node_modules/
 private/settings/production.json
 npm-debug.log
+queries/
