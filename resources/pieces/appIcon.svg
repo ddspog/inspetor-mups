@@ -3,9 +3,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
 	 id="Icon" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" inkscape:export-ydpi="960" sodipodi:docname="appIcon.svg" inkscape:export-xdpi="960" inkscape:export-filename="D:\github\inspetor-mups\resources\icons\icon-android_play-store.png" inkscape:version="0.91 r13725"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="792px"
-	 viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
-<g id="layer8" inkscape:label="Grid" sodipodi:insensitive="true" inkscape:groupmode="layer" display="none">
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px"
+	 viewBox="0 90 612 612" enable-background="new 0 90 612 612" xml:space="preserve">
+<g id="Grid" inkscape:label="Grid" sodipodi:insensitive="true" inkscape:groupmode="layer" display="none">
 	
 		<path id="path3586" inkscape:connector-curvature="0" display="inline" opacity="0.6" fill="none" stroke="#000000" stroke-width="0.9452" enable-background="new    " d="
 		M89.251,346.104l331.427,0.06L89.251,346.104z"/>
@@ -13,6 +13,7 @@
 		<path id="path3586-3" inkscape:connector-curvature="0" display="inline" opacity="0.6" fill="none" stroke="#000000" stroke-width="0.9452" enable-background="new    " d="
 		M255.946,510.749l0.063-331.427L255.946,510.749z"/>
 </g>
+<circle id="White" fill="#FFFFFF" cx="254.609" cy="345.826" r="162.373"/>
 <g id="Recycle">
 	<g>
 		<path fill="#6AC259" d="M157.396,358.877c0,0.012-0.012,0.012-0.012,0.024l-0.671,1.165c-0.012,0.024-0.024,0.049-0.037,0.073
