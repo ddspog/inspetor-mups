@@ -5,7 +5,7 @@ meteor-angular-material application to locate sanitation problems at UFCG (feder
 
 ## Last Version
 
-The app is ready to download on this [Play Store](https://play.google.com/store/apps/details?id=com.ide5fpb31wteimk11kr7p0) for Android. It allows to register records using photos and location info from smartphone.
+The app is ready to download on [Play Store](https://play.google.com/store/apps/details?id=com.ide5fpb31wteimk11kr7p0) for Android. It allows to register records using photos and location info from smartphone.
 
 ### Installing
 
