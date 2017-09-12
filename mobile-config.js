@@ -1,5 +1,5 @@
 App.info({
-    name: 'Inspetor Mups',
+    name: 'inspetor-mups',
     description: 'Ferramenta para registrar problemas sanitários.',
     author: 'Dênnis Dantas de Sousa',
     email: 'ddspog@gmail.com'
@@ -9,6 +9,7 @@ App.accessRule('*://localhost:12768/*');
 App.accessRule('*://inspetor-mups.herokuapp.com/*');
 App.accessRule('*://ajax.googleapis.com/*');
 App.accessRule('*://fonts.googleapis.com/*');
+App.accessRule('*://fonts.*.com/*');
 
 App.accessRule('data:*', { type: 'navigation' });
 
